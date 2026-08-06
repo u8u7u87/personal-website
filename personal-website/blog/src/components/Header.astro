@@ -17,7 +17,6 @@ const rootPrefix = import.meta.env.BASE_URL.replace(/blog\/$/, ''); // '/persona
 		<h2><a href={import.meta.env.BASE_URL}>{SITE_TITLE}</a></h2>
 		<div class="internal-links">
 			<HeaderLink href={import.meta.env.BASE_URL}>Home</HeaderLink>
-			<HeaderLink href={`${import.meta.env.BASE_URL}blog`} class={Astro.url.pathname.replace(/\/$/, '') === import.meta.env.BASE_URL.replace(/\/$/, '') ? 'active' : ''}>Blog</HeaderLink>
 			<HeaderLink href={`${import.meta.env.BASE_URL}about`}>About</HeaderLink>
 		</div>
 		<div class="social-links">
