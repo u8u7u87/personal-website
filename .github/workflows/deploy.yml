@@ -18,36 +18,20 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
+          cache: 'npm'
+          cache-dependency-path: personal-website/package-lock.json
 
-      - name: Setup Rust (for mdBook)
-        uses: dtolnay/rust-toolchain@stable
+      - name: Setup mdBook
+        uses: peaceiris/actions-mdbook@v2
+        with:
+          mdbook-version: 'latest'
 
-      - name: Install mdBook
-        run: cargo install mdbook
+      - name: Install Dependencies
+        run: npm ci --prefix personal-website
 
-      - name: Install and Build Landing
-        run: |
-          cd personal-website/landing
-          npm install
-          npm run build
-
-      - name: Install and Build Blog
-        run: |
-          cd personal-website/blog
-          npm install
-          npm run build
-
-      - name: Install and Build Analysis
-        run: |
-          cd personal-website/analysis
-          npm install
-          npm run build
-
-      - name: Build Books
-        run: |
-          cd personal-website/books
-          mdbook build
+      - name: Build All JS/TS Modules
+        run: npm run build:all --prefix personal-website
 
       - name: Consolidate Builds
         run: |
