@@ -13,5 +13,8 @@ const { Layout } = DefaultTheme
         <a href="/personal-website/books/">Books</a>
       </nav>
     </template>
+    <template #doc-after>
+      <Comments />
+    </template>
   </Layout>
 </template>
