@@ -1,7 +1,15 @@
 ---
 import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
+import '../../../shared/global-nav.css';
 ---
+
+<nav class="global-nav">
+	<a href="/personal-website/">Home</a>
+	<a href="/personal-website/blog/" class="active">Blog</a>
+	<a href="/personal-website/analysis/">Analysis</a>
+	<a href="/personal-website/books/">Books</a>
+</nav>
 
 <header>
 	<nav>
