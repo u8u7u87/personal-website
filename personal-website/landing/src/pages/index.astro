@@ -19,6 +19,10 @@ const rootPrefix = import.meta.env.BASE_URL; // '/personal-website/'
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 	</head>
 	<body>
+		<!-- Background Floating Orbs -->
+		<div class="orb orb-purple" aria-hidden="true"></div>
+		<div class="orb orb-cyan" aria-hidden="true"></div>
+
 		<nav class="global-nav">
 			<a href={rootPrefix} class="active">Home</a>
 			<a href={`${rootPrefix}blog/`}>Blog</a>
@@ -101,6 +105,7 @@ const rootPrefix = import.meta.env.BASE_URL; // '/personal-website/'
 		color-scheme: dark;
 	}
 	body {
+		position: relative;
 		background: var(--bg-radial, radial-gradient(circle at 50% 50%, #111827 0%, #030712 100%));
 		color: var(--text-primary, #f8fafc);
 		font-family: var(--font-body, 'Inter', sans-serif);
@@ -168,6 +173,8 @@ const rootPrefix = import.meta.env.BASE_URL; // '/personal-website/'
 	}
 
 	.glass-card {
+		position: relative;
+		overflow: hidden;
 		background: var(--glass-bg, rgba(15, 23, 42, 0.45));
 		backdrop-filter: blur(var(--glass-blur, 12px));
 		-webkit-backdrop-filter: blur(var(--glass-blur, 12px));
@@ -187,11 +194,62 @@ const rootPrefix = import.meta.env.BASE_URL; // '/personal-website/'
 		box-sizing: border-box;
 	}
 
+	.glass-card::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+		background: radial-gradient(
+			600px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+			rgba(56, 189, 248, 0.08),
+			transparent 40%
+		);
+		pointer-events: none;
+		opacity: 0;
+		transition: opacity 0.4s ease;
+		z-index: 1;
+	}
+
+	.glass-card::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+		padding: 1px;
+		background: radial-gradient(
+			350px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+			rgba(255, 255, 255, 0.2),
+			transparent 50%
+		);
+		-webkit-mask: 
+			linear-gradient(#fff 0 0) content-box, 
+			linear-gradient(#fff 0 0);
+		mask: 
+			linear-gradient(#fff 0 0) content-box, 
+			linear-gradient(#fff 0 0);
+		-webkit-mask-composite: xor;
+		mask-composite: exclude;
+		pointer-events: none;
+		opacity: 0;
+		transition: opacity 0.4s ease;
+		z-index: 2;
+	}
+
 	.glass-card:hover {
 		transform: translateY(-6px);
 		border-color: var(--glass-border-hover, rgba(255, 255, 255, 0.18));
 		background: var(--glass-bg-hover, rgba(15, 23, 42, 0.65));
 		box-shadow: 0 12px 40px 0 rgba(56, 189, 248, 0.15), var(--glass-shadow, 0 8px 32px 0 rgba(0, 0, 0, 0.37));
+	}
+
+	.glass-card:hover::before,
+	.glass-card:hover::after {
+		opacity: 1;
+	}
+
+	.glass-card > * {
+		position: relative;
+		z-index: 3;
 	}
 
 	.card-icon {
@@ -263,6 +321,8 @@ const rootPrefix = import.meta.env.BASE_URL; // '/personal-website/'
 	}
 
 	.portfolio-card {
+		position: relative;
+		overflow: hidden;
 		background: rgba(255, 255, 255, 0.02);
 		border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
 		border-radius: 16px;
@@ -270,9 +330,60 @@ const rootPrefix = import.meta.env.BASE_URL; // '/personal-website/'
 		transition: border-color 0.2s ease, background 0.2s ease;
 	}
 
+	.portfolio-card::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+		background: radial-gradient(
+			600px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+			rgba(56, 189, 248, 0.08),
+			transparent 40%
+		);
+		pointer-events: none;
+		opacity: 0;
+		transition: opacity 0.4s ease;
+		z-index: 1;
+	}
+
+	.portfolio-card::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+		padding: 1px;
+		background: radial-gradient(
+			350px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+			rgba(255, 255, 255, 0.2),
+			transparent 50%
+		);
+		-webkit-mask: 
+			linear-gradient(#fff 0 0) content-box, 
+			linear-gradient(#fff 0 0);
+		mask: 
+			linear-gradient(#fff 0 0) content-box, 
+			linear-gradient(#fff 0 0);
+		-webkit-mask-composite: xor;
+		mask-composite: exclude;
+		pointer-events: none;
+		opacity: 0;
+		transition: opacity 0.4s ease;
+		z-index: 2;
+	}
+
 	.portfolio-card:hover {
 		border-color: rgba(56, 189, 248, 0.3);
 		background: rgba(255, 255, 255, 0.04);
+	}
+
+	.portfolio-card:hover::before,
+	.portfolio-card:hover::after {
+		opacity: 1;
+	}
+
+	.portfolio-card > * {
+		position: relative;
+		z-index: 3;
 	}
 
 	.project-title {
@@ -312,4 +423,68 @@ const rootPrefix = import.meta.env.BASE_URL; // '/personal-website/'
 		border-top: 1px solid rgba(255, 255, 255, 0.05);
 		margin-top: 80px;
 	}
+
+	/* Floating Orbs */
+	.orb {
+		position: absolute;
+		width: 500px;
+		height: 500px;
+		border-radius: 50%;
+		filter: blur(130px);
+		opacity: 0.12;
+		z-index: -1;
+		pointer-events: none;
+	}
+
+	.orb-purple {
+		background: #a855f7;
+		top: 10%;
+		left: -100px;
+		animation: float-purple 20s infinite alternate ease-in-out;
+	}
+
+	.orb-cyan {
+		background: #06b6d4;
+		top: 50%;
+		right: -100px;
+		animation: float-cyan 25s infinite alternate ease-in-out;
+	}
+
+	@keyframes float-purple {
+		0% {
+			transform: translate(0, 0) scale(1);
+		}
+		50% {
+			transform: translate(80px, 50px) scale(1.1);
+		}
+		100% {
+			transform: translate(-50px, 100px) scale(0.9);
+		}
+	}
+
+	@keyframes float-cyan {
+		0% {
+			transform: translate(0, 0) scale(1.1);
+		}
+		50% {
+			transform: translate(-100px, -60px) scale(0.95);
+		}
+		100% {
+			transform: translate(60px, 40px) scale(1.05);
+		}
+	}
 </style>
+
+<script>
+	const cards = document.querySelectorAll('.glass-card, .portfolio-card');
+	cards.forEach((card) => {
+		card.addEventListener('mousemove', (e) => {
+			const mouseEvent = e as MouseEvent;
+			const rect = card.getBoundingClientRect();
+			const x = mouseEvent.clientX - rect.left;
+			const y = mouseEvent.clientY - rect.top;
+			(card as HTMLElement).style.setProperty('--mouse-x', `${x}px`);
+			(card as HTMLElement).style.setProperty('--mouse-y', `${y}px`);
+		});
+	});
+</script>
