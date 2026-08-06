@@ -28,7 +28,7 @@ jobs:
           mdbook-version: 'latest'
 
       - name: Install Dependencies
-        run: npm ci --prefix personal-website
+        run: npm install --prefix personal-website
 
       - name: Build All JS/TS Modules
         run: npm run build:all --prefix personal-website
