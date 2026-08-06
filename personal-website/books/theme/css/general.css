@@ -1,3 +1,5 @@
+@import "../../shared/theme.css";
+
 /* Base styles and content styles */
 
 :root {
@@ -229,4 +231,85 @@ kbd {
 
 .result-no-output {
     font-style: italic;
+}
+
+/* Custom Dark Theme Variables & Overrides */
+:root, .light, .coal, .navy, .ayu, .rust {
+    --bg: var(--bg-primary) !important;
+    --fg: var(--text-secondary) !important;
+    --sidebar-bg: rgba(15, 23, 42, 0.95) !important;
+    --sidebar-fg: var(--text-secondary) !important;
+    --sidebar-active: var(--accent) !important;
+    --sidebar-spacer: var(--border-color) !important;
+    
+    --icons: var(--text-muted) !important;
+    --icons-hover: var(--accent) !important;
+    --links: var(--accent) !important;
+    
+    --inline-code-color: var(--accent-hover) !important;
+    --theme-popup-bg: var(--bg-primary) !important;
+    --theme-popup-border: var(--border-color) !important;
+    --theme-hover: rgba(255, 255, 255, 0.05) !important;
+    
+    --table-border-color: var(--border-color) !important;
+    --table-header-bg: rgba(255, 255, 255, 0.08) !important;
+    --table-alternate-bg: rgba(255, 255, 255, 0.03) !important;
+    
+    --quote-bg: rgba(255, 255, 255, 0.02) !important;
+    --quote-border: var(--accent) !important;
+    
+    --scrollbar: var(--accent) !important;
+}
+
+body {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-secondary) !important;
+    font-family: var(--font-body) !important;
+}
+
+.sidebar {
+    background-color: var(--sidebar-bg) !important;
+    border-right: 1px solid var(--border-color) !important;
+    backdrop-filter: blur(var(--glass-blur)) !important;
+    -webkit-backdrop-filter: blur(var(--glass-blur)) !important;
+}
+
+/* Menu Bar Overrides */
+#menu-bar {
+    background-color: var(--bg-primary) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+/* Main Container */
+.page-wrapper {
+    background-color: var(--bg-primary) !important;
+}
+
+.content main {
+    max-width: var(--content-max-width);
+    font-family: var(--font-body);
+    color: var(--text-secondary);
+}
+
+/* Headers Styling */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary) !important;
+    font-family: var(--font-heading) !important;
+    font-weight: 700;
+}
+
+/* Chapter Navigation Arrows */
+.nav-chapters {
+    color: var(--icons) !important;
+    transition: color 0.2s, background-color 0.2s !important;
+}
+
+.nav-chapters:hover {
+    color: var(--icons-hover) !important;
+    background-color: var(--theme-hover) !important;
+}
+
+.mobile-nav-chapters {
+    background-color: var(--sidebar-bg) !important;
+    border: 1px solid var(--border-color) !important;
 }
