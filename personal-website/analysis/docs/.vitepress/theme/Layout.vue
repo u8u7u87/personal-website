@@ -5,7 +5,7 @@ const { Layout } = DefaultTheme
 
 <template>
   <Layout>
-    <template #nav-bar-content-before>
+    <template #layout-top>
       <nav class="global-nav">
         <a href="/personal-website/">Home</a>
         <a href="/personal-website/blog/">Blog</a>
