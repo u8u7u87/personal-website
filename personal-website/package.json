@@ -10,6 +10,7 @@
     "dev:landing": "npm --prefix landing run dev",
     "dev:blog": "npm --prefix blog run dev",
     "dev:analysis": "npm --prefix analysis run dev",
-    "build:all": "npm --prefix landing run build && npm --prefix blog run build && npm --prefix analysis run build"
+    "build:books": "mdbook build books",
+    "build:all": "npm --prefix landing run build && npm --prefix blog run build && npm --prefix analysis run build && npm run build:books"
   }
 }

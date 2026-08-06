@@ -1,8 +1,12 @@
 {
   "name": "analysis",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "directories": {
     "doc": "docs"
   },
