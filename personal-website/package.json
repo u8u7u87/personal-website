@@ -1,0 +1,15 @@
+{
+  "name": "personal-website-monorepo",
+  "private": true,
+  "workspaces": [
+    "landing",
+    "blog",
+    "analysis"
+  ],
+  "scripts": {
+    "dev:landing": "npm --prefix landing run dev",
+    "dev:blog": "npm --prefix blog run dev",
+    "dev:analysis": "npm --prefix analysis run dev",
+    "build:all": "npm --prefix landing run build && npm --prefix blog run build && npm --prefix analysis run build"
+  }
+}
