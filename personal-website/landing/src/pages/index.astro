@@ -10,7 +10,13 @@ const rootPrefix = import.meta.env.BASE_URL; // '/personal-website/'
 		<link rel="icon" href={`${import.meta.env.BASE_URL}favicon.ico`} />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Personal Hub</title>
+
+		<!-- Preconnect to Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<!-- Load Outfit and Inter fonts -->
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 	</head>
 	<body>
 		<nav class="global-nav">
@@ -19,7 +25,291 @@ const rootPrefix = import.meta.env.BASE_URL; // '/personal-website/'
 			<a href={`${rootPrefix}analysis/`}>Analysis</a>
 			<a href={`${rootPrefix}books/`}>Books</a>
 		</nav>
-		<h1>Astro</h1>
+
+		<main class="container">
+			<!-- Option A Hero Typography -->
+			<header class="hero">
+				<h1 class="hero-title">Creative Space & <span class="gradient-text">Insights</span></h1>
+				<p class="hero-subtitle">Exploring software engineering, systems architecture, reading, and industry analysis.</p>
+			</header>
+
+			<!-- 4-Column Responsive Grid -->
+			<section class="modules-grid">
+				<a href={`${rootPrefix}blog/`} class="glass-card">
+					<span class="card-icon" aria-hidden="true">✍️</span>
+					<h2 class="card-title">Blog</h2>
+					<p class="card-desc">Personal thoughts, code tutorials, and software development guides.</p>
+					<span class="card-action">Read Posts <span class="arrow">→</span></span>
+				</a>
+
+				<a href={`${rootPrefix}analysis/`} class="glass-card">
+					<span class="card-icon" aria-hidden="true">📊</span>
+					<h2 class="card-title">Analysis</h2>
+					<p class="card-desc">Company deep dives, industry research, and analytical reports.</p>
+					<span class="card-action">View Analysis <span class="arrow">→</span></span>
+				</a>
+
+				<a href={`${rootPrefix}books/`} class="glass-card">
+					<span class="card-icon" aria-hidden="true">📚</span>
+					<h2 class="card-title">Books</h2>
+					<p class="card-desc">Long-form publishing, guides, and structured summaries of my reading.</p>
+					<span class="card-action">Browse Books <span class="arrow">→</span></span>
+				</a>
+
+				<a href="#portfolio" class="glass-card">
+					<span class="card-icon" aria-hidden="true">💼</span>
+					<h2 class="card-title">Portfolio</h2>
+					<p class="card-desc">Showcase of open-source projects, tooling, and system designs.</p>
+					<span class="card-action">Explore Work <span class="arrow">→</span></span>
+				</a>
+			</section>
+
+			<!-- Portfolio Section -->
+			<section id="portfolio" class="portfolio-section">
+				<h2 class="section-title">Selected Projects</h2>
+				<div class="portfolio-grid">
+					<div class="portfolio-card">
+						<h3 class="project-title">Antigravity Engine</h3>
+						<p class="project-desc">A lightweight, high-performance concurrent scheduler written in Rust, leveraging fiber-like task models.</p>
+						<div class="project-tags">
+							<span class="tag">Rust</span>
+							<span class="tag">Concurrency</span>
+							<span class="tag">Systems</span>
+						</div>
+					</div>
+					<div class="portfolio-card">
+						<h3 class="project-title">Glassmorphic UI</h3>
+						<p class="project-desc">A modern, responsive CSS library for glassmorphic design systems, featuring clean CSS variables.</p>
+						<div class="project-tags">
+							<span class="tag">CSS</span>
+							<span class="tag">Design System</span>
+							<span class="tag">UI/UX</span>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<footer>
+				<p>&copy; {new Date().getFullYear()} Personal Hub. Built with Astro.</p>
+			</footer>
+		</main>
 	</body>
 </html>
 
+<style>
+	:root {
+		color-scheme: dark;
+	}
+	body {
+		background: var(--bg-radial, radial-gradient(circle at 50% 50%, #111827 0%, #030712 100%));
+		color: var(--text-primary, #f8fafc);
+		font-family: var(--font-body, 'Inter', sans-serif);
+		min-height: 100vh;
+		margin: 0;
+		padding: 0;
+		overflow-x: hidden;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 40px 24px 80px 24px;
+	}
+
+	.hero {
+		text-align: center;
+		margin-top: 60px;
+		margin-bottom: 70px;
+	}
+
+	.hero-title {
+		font-family: var(--font-heading, 'Outfit', sans-serif);
+		font-size: 3.5rem;
+		font-weight: 800;
+		letter-spacing: -0.03em;
+		margin: 0 0 16px 0;
+		line-height: 1.15;
+	}
+
+	.gradient-text {
+		background: linear-gradient(135deg, #fff 30%, var(--accent, #38bdf8) 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		display: inline-block;
+	}
+
+	.hero-subtitle {
+		font-size: 1.25rem;
+		color: var(--text-secondary, #94a3b8);
+		max-width: 600px;
+		margin: 0 auto;
+		line-height: 1.6;
+		font-weight: 400;
+	}
+
+	/* 4-column Grid */
+	.modules-grid {
+		display: grid;
+		grid-template-columns: repeat(1, minmax(0, 1fr));
+		gap: 24px;
+		margin-bottom: 100px;
+	}
+
+	@media (min-width: 640px) {
+		.modules-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.modules-grid {
+			grid-template-columns: repeat(4, minmax(0, 1fr));
+		}
+	}
+
+	.glass-card {
+		background: var(--glass-bg, rgba(15, 23, 42, 0.45));
+		backdrop-filter: blur(var(--glass-blur, 12px));
+		-webkit-backdrop-filter: blur(var(--glass-blur, 12px));
+		border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.08));
+		border-radius: 20px;
+		padding: 32px 28px;
+		text-decoration: none;
+		color: var(--text-primary, #f8fafc);
+		transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+					border-color 0.3s ease,
+					box-shadow 0.3s ease,
+					background 0.3s ease;
+		box-shadow: var(--glass-shadow, 0 8px 32px 0 rgba(0, 0, 0, 0.37));
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		box-sizing: border-box;
+	}
+
+	.glass-card:hover {
+		transform: translateY(-6px);
+		border-color: var(--glass-border-hover, rgba(255, 255, 255, 0.18));
+		background: var(--glass-bg-hover, rgba(15, 23, 42, 0.65));
+		box-shadow: 0 12px 40px 0 rgba(56, 189, 248, 0.15), var(--glass-shadow, 0 8px 32px 0 rgba(0, 0, 0, 0.37));
+	}
+
+	.card-icon {
+		font-size: 2.5rem;
+		margin-bottom: 20px;
+		display: inline-block;
+	}
+
+	.card-title {
+		font-family: var(--font-heading, 'Outfit', sans-serif);
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin: 0 0 12px 0;
+		letter-spacing: -0.01em;
+	}
+
+	.glass-card:hover .card-title {
+		color: var(--accent, #38bdf8);
+	}
+
+	.card-desc {
+		font-size: 0.95rem;
+		color: var(--text-secondary, #94a3b8);
+		line-height: 1.5;
+		margin: 0 0 24px 0;
+		flex-grow: 1;
+	}
+
+	.card-action {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		font-size: 0.9rem;
+		font-weight: 600;
+		color: var(--accent, #38bdf8);
+		transition: gap 0.2s ease;
+	}
+
+	.glass-card:hover .card-action {
+		gap: 10px;
+	}
+
+	/* Portfolio Section */
+	.portfolio-section {
+		border-top: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+		padding-top: 80px;
+		margin-top: 20px;
+	}
+
+	.section-title {
+		font-family: var(--font-heading, 'Outfit', sans-serif);
+		font-size: 2.25rem;
+		font-weight: 700;
+		margin: 0 0 32px 0;
+		text-align: center;
+		letter-spacing: -0.02em;
+	}
+
+	.portfolio-grid {
+		display: grid;
+		grid-template-columns: repeat(1, minmax(0, 1fr));
+		gap: 24px;
+	}
+
+	@media (min-width: 768px) {
+		.portfolio-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	.portfolio-card {
+		background: rgba(255, 255, 255, 0.02);
+		border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+		border-radius: 16px;
+		padding: 28px;
+		transition: border-color 0.2s ease, background 0.2s ease;
+	}
+
+	.portfolio-card:hover {
+		border-color: rgba(56, 189, 248, 0.3);
+		background: rgba(255, 255, 255, 0.04);
+	}
+
+	.project-title {
+		font-family: var(--font-heading, 'Outfit', sans-serif);
+		font-size: 1.25rem;
+		font-weight: 700;
+		margin: 0 0 10px 0;
+	}
+
+	.project-desc {
+		font-size: 0.95rem;
+		color: var(--text-secondary, #94a3b8);
+		line-height: 1.5;
+		margin: 0 0 20px 0;
+	}
+
+	.project-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+
+	.tag {
+		font-size: 0.75rem;
+		font-weight: 600;
+		background: rgba(56, 189, 248, 0.1);
+		color: var(--accent, #38bdf8);
+		padding: 4px 10px;
+		border-radius: 12px;
+	}
+
+	footer {
+		text-align: center;
+		padding: 40px 0 20px 0;
+		color: var(--text-muted, #64748b);
+		font-size: 0.85rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.05);
+		margin-top: 80px;
+	}
+</style>

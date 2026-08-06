@@ -54,37 +54,63 @@ const rootPrefix = import.meta.env.BASE_URL.replace(/blog\/$/, ''); // '/persona
 	header {
 		margin: 0;
 		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+		background: transparent;
+		border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
 	}
 	h2 {
 		margin: 0;
-		font-size: 1em;
+		font-size: 1.25rem;
+		font-family: var(--font-heading);
 	}
 
-	h2 a,
-	h2 a.active {
+	h2 a {
+		color: var(--text-primary);
 		text-decoration: none;
 	}
+	
 	header nav {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 	}
-	header nav a {
-		padding: 1em 0.5em;
-		color: var(--black);
+	
+	.internal-links {
+		display: flex;
+		gap: 10px;
+	}
+	
+	.internal-links a {
+		padding: 1.5em 0.5em;
+		color: var(--text-secondary);
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
+		font-family: var(--font-body);
+		font-weight: 500;
+		transition: color 0.2s ease, border-color 0.2s ease;
 	}
-	header nav a.active {
-		text-decoration: none;
+	
+	.internal-links a:hover,
+	.internal-links a.active {
+		color: var(--text-primary);
 		border-bottom-color: var(--accent);
 	}
-	.social-links,
+	
+	.social-links {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+	}
+	
 	.social-links a {
 		display: flex;
+		color: var(--text-secondary);
+		transition: color 0.2s ease;
 	}
+	
+	.social-links a:hover {
+		color: var(--accent);
+	}
+	
 	@media (max-width: 720px) {
 		.social-links {
 			display: none;

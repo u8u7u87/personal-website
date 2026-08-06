@@ -1,40 +1,37 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
+@import '../../../shared/theme.css';
 
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
-	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
-	--box-shadow:
-		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
-		0 16px 32px rgba(var(--gray), 33%);
+	/* Bridge standard theme variables to Bear Blog variables */
+	--accent: var(--accent);
+	--accent-dark: var(--accent-hover);
+	--black: 248, 250, 252;      /* maps to #f8fafc */
+	--gray: 148, 163, 184;       /* maps to #94a3b8 */
+	--gray-light: 30, 41, 59;     /* maps to a dark slate background (#1e293b) */
+	--gray-dark: 226, 232, 240;   /* maps to #e2e8f0 */
+	--box-shadow: var(--glass-shadow);
 }
+
 body {
-	font-family: var(--font-atkinson);
+	font-family: var(--font-body);
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
-	background-size: 100% 600px;
+	background: var(--bg-radial) no-repeat;
+	background-attachment: fixed;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-	color: rgb(var(--gray-dark));
+	color: var(--text-secondary);
 	font-size: 20px;
 	line-height: 1.7;
 }
+
 main {
-	width: 720px;
+	width: 960px;
 	max-width: calc(100% - 2em);
 	margin: auto;
 	padding: 3em 1em;
 }
+
 h1,
 h2,
 h3,
@@ -42,77 +39,224 @@ h4,
 h5,
 h6 {
 	margin: 0 0 0.5rem 0;
-	color: rgb(var(--black));
+	color: var(--text-primary);
+	font-family: var(--font-heading);
 	line-height: 1.2;
 }
+
 h1 {
 	font-size: 3.052em;
 }
+
 h2 {
 	font-size: 2.441em;
 }
+
 h3 {
 	font-size: 1.953em;
 }
+
 h4 {
 	font-size: 1.563em;
 }
+
 h5 {
 	font-size: 1.25em;
 }
+
 strong,
 b {
 	font-weight: 700;
 }
+
 a {
 	color: var(--accent);
+	transition: color 0.2s ease;
 }
+
 a:hover {
-	color: var(--accent);
+	color: var(--accent-hover);
 }
+
 p {
-	margin-bottom: 1em;
+	margin-bottom: 1.6em;
 }
+
+/* Prose layout restyling */
+.prose {
+	color: var(--text-secondary);
+	font-family: var(--font-body);
+}
+
 .prose p {
-	margin-bottom: 2em;
+	margin-bottom: 1.6em;
+	line-height: 1.8;
 }
+
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+	color: var(--text-primary);
+	font-family: var(--font-heading);
+	margin-top: 1.8em;
+	margin-bottom: 0.6em;
+}
+
+.prose a {
+	color: var(--accent);
+	text-decoration: underline;
+	text-underline-offset: 4px;
+}
+
+.prose a:hover {
+	color: var(--accent-hover);
+}
+
 textarea {
 	width: 100%;
 	font-size: 16px;
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid var(--border-color);
+	color: var(--text-primary);
+	border-radius: 8px;
+	padding: 10px;
 }
+
 input {
 	font-size: 16px;
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid var(--border-color);
+	color: var(--text-primary);
+	border-radius: 8px;
+	padding: 8px 12px;
 }
+
 table {
 	width: 100%;
+	border-collapse: collapse;
+	margin: 2em 0;
 }
+
+th, td {
+	padding: 12px;
+	border-bottom: 1px solid var(--border-color);
+	text-align: left;
+}
+
 img {
 	max-width: 100%;
 	height: auto;
-	border-radius: 8px;
+	border-radius: 12px;
 }
+
 code {
-	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
-	border-radius: 2px;
+	padding: 3px 6px;
+	background-color: rgba(255, 255, 255, 0.08);
+	border: 1px solid rgba(255, 255, 255, 0.05);
+	border-radius: 6px;
+	font-family: monospace;
+	font-size: 0.9em;
+	color: var(--accent);
 }
+
 pre {
 	padding: 1.5em;
-	border-radius: 8px;
+	border-radius: 12px;
+	background-color: rgba(15, 23, 42, 0.5) !important;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	backdrop-filter: blur(8px);
+	margin: 2em 0;
+	overflow-x: auto;
 }
+
 pre > code {
 	all: unset;
+	font-family: inherit;
+	color: inherit;
 }
+
 blockquote {
 	border-left: 4px solid var(--accent);
-	padding: 0 0 0 20px;
-	margin: 0;
-	font-size: 1.333em;
+	padding: 10px 20px;
+	margin: 2em 0;
+	font-size: 1.15em;
+	color: var(--text-primary);
+	background: rgba(255, 255, 255, 0.02);
+	border-radius: 0 8px 8px 0;
+	font-style: italic;
 }
+
 hr {
 	border: none;
-	border-top: 1px solid rgb(var(--gray-light));
+	border-top: 1px solid var(--border-color);
+	margin: 3em 0;
 }
+
+/* Glassmorphic Blog Post List Restyling */
+main ul {
+	display: grid !important;
+	grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+	gap: 2rem !important;
+	list-style-type: none !important;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+@media (min-width: 768px) {
+	main ul {
+		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+	}
+}
+
+main ul li {
+	width: 100% !important;
+	margin-bottom: 0 !important;
+}
+
+main ul li a {
+	display: flex !important;
+	flex-direction: column !important;
+	background: var(--glass-bg) !important;
+	backdrop-filter: blur(var(--glass-blur)) !important;
+	-webkit-backdrop-filter: blur(var(--glass-blur)) !important;
+	border: 1px solid var(--glass-border) !important;
+	border-radius: 16px !important;
+	padding: 20px !important;
+	height: 100% !important;
+	box-sizing: border-box !important;
+	transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+				border-color 0.3s ease,
+				box-shadow 0.3s ease,
+				background 0.3s ease !important;
+	text-decoration: none !important;
+}
+
+main ul li a:hover {
+	transform: translateY(-4px) !important;
+	border-color: var(--glass-border-hover) !important;
+	background: var(--glass-bg-hover) !important;
+	box-shadow: 0 10px 30px rgba(56, 189, 248, 0.12), var(--glass-shadow) !important;
+}
+
+main ul li img {
+	width: 100% !important;
+	height: 200px !important;
+	object-fit: cover !important;
+	border-radius: 10px !important;
+	margin-bottom: 15px !important;
+}
+
+main ul li .title {
+	font-family: var(--font-heading) !important;
+	font-size: 1.35rem !important;
+	color: var(--text-primary) !important;
+	margin: 0 0 10px 0 !important;
+}
+
+main ul li .date {
+	font-size: 0.85rem !important;
+	color: var(--text-muted) !important;
+	margin: 0 !important;
+}
+
 @media (max-width: 720px) {
 	body {
 		font-size: 18px;
@@ -130,12 +274,8 @@ hr {
 	height: 1px;
 	width: 1px;
 	overflow: hidden;
-	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
 	clip: rect(1px 1px 1px 1px);
-	/* maybe deprecated but we need to support legacy browsers */
 	clip: rect(1px, 1px, 1px, 1px);
-	/* modern browsers, clip-path works inwards from each corner */
 	clip-path: inset(50%);
-	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
 }
