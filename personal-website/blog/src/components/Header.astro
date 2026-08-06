@@ -2,13 +2,14 @@
 import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
 import '../../../shared/global-nav.css';
+const rootPrefix = import.meta.env.BASE_URL.replace(/blog\/$/, ''); // '/personal-website/'
 ---
 
 <nav class="global-nav">
-	<a href="/personal-website/">Home</a>
-	<a href="/personal-website/blog/" class="active">Blog</a>
-	<a href="/personal-website/analysis/">Analysis</a>
-	<a href="/personal-website/books/">Books</a>
+	<a href={rootPrefix}>Home</a>
+	<a href={`${rootPrefix}blog/`} class="active">Blog</a>
+	<a href={`${rootPrefix}analysis/`}>Analysis</a>
+	<a href={`${rootPrefix}books/`}>Books</a>
 </nav>
 
 <header>
@@ -16,7 +17,7 @@ import '../../../shared/global-nav.css';
 		<h2><a href={import.meta.env.BASE_URL}>{SITE_TITLE}</a></h2>
 		<div class="internal-links">
 			<HeaderLink href={import.meta.env.BASE_URL}>Home</HeaderLink>
-			<HeaderLink href={`${import.meta.env.BASE_URL}blog`}>Blog</HeaderLink>
+			<HeaderLink href={`${import.meta.env.BASE_URL}blog`} class={Astro.url.pathname.replace(/\/$/, '') === import.meta.env.BASE_URL.replace(/\/$/, '') ? 'active' : ''}>Blog</HeaderLink>
 			<HeaderLink href={`${import.meta.env.BASE_URL}about`}>About</HeaderLink>
 		</div>
 		<div class="social-links">

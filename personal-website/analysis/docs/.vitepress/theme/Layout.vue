@@ -1,16 +1,19 @@
 <script setup>
 import DefaultTheme from 'vitepress/theme'
+import { useData } from 'vitepress'
 const { Layout } = DefaultTheme
+const { site } = useData()
+const rootPrefix = site.value.base.replace(/analysis\/$/, '') // '/personal-website/'
 </script>
 
 <template>
   <Layout>
     <template #layout-top>
       <nav class="global-nav">
-        <a href="/personal-website/">Home</a>
-        <a href="/personal-website/blog/">Blog</a>
-        <a href="/personal-website/analysis/" class="active">Analysis</a>
-        <a href="/personal-website/books/">Books</a>
+        <a :href="rootPrefix">Home</a>
+        <a :href="rootPrefix + 'blog/'">Blog</a>
+        <a :href="rootPrefix + 'analysis/'" class="active">Analysis</a>
+        <a :href="rootPrefix + 'books/'">Books</a>
       </nav>
     </template>
     <template #doc-after>

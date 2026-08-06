@@ -1,5 +1,6 @@
 ---
 import '../../../shared/global-nav.css';
+const rootPrefix = import.meta.env.BASE_URL; // '/personal-website/'
 ---
 
 <html lang="en">
@@ -13,10 +14,10 @@ import '../../../shared/global-nav.css';
 	</head>
 	<body>
 		<nav class="global-nav">
-			<a href="/personal-website/" class="active">Home</a>
-			<a href="/personal-website/blog/">Blog</a>
-			<a href="/personal-website/analysis/">Analysis</a>
-			<a href="/personal-website/books/">Books</a>
+			<a href={rootPrefix} class="active">Home</a>
+			<a href={`${rootPrefix}blog/`}>Blog</a>
+			<a href={`${rootPrefix}analysis/`}>Analysis</a>
+			<a href={`${rootPrefix}books/`}>Books</a>
 		</nav>
 		<h1>Astro</h1>
 	</body>

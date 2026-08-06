@@ -170,11 +170,29 @@
 
             <div class="page">
                 <nav class="global-nav">
-                    <a href="/personal-website/">Home</a>
-                    <a href="/personal-website/blog/">Blog</a>
-                    <a href="/personal-website/analysis/">Analysis</a>
-                    <a href="/personal-website/books/" class="active">Books</a>
+                    <a href="#" data-target="home">Home</a>
+                    <a href="#" data-target="blog">Blog</a>
+                    <a href="#" data-target="analysis">Analysis</a>
+                    <a href="#" data-target="books" class="active">Books</a>
                 </nav>
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                      const path = window.location.pathname;
+                      const booksIndex = path.indexOf('/books/');
+                      let rootPrefix = '/';
+                      if (booksIndex !== -1) {
+                        rootPrefix = path.substring(0, booksIndex + 1);
+                      }
+                      document.querySelectorAll('.global-nav a').forEach(a => {
+                        const target = a.getAttribute('data-target');
+                        if (target === 'home') a.href = rootPrefix;
+                        if (target === 'blog') a.href = rootPrefix + 'blog/';
+                        if (target === 'analysis') a.href = rootPrefix + 'analysis/';
+                        if (target === 'books') a.href = rootPrefix + 'books/';
+                      });
+                    });
+                </script>
                 {{> header}}
                 <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
