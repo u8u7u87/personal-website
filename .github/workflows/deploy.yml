@@ -1,0 +1,70 @@
+name: Deploy Multi-Module Site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Setup Rust (for mdBook)
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install mdBook
+        run: cargo install mdbook
+
+      - name: Install and Build Landing
+        run: |
+          cd personal-website/landing
+          npm install
+          npm run build
+
+      - name: Install and Build Blog
+        run: |
+          cd personal-website/blog
+          npm install
+          npm run build
+
+      - name: Install and Build Analysis
+        run: |
+          cd personal-website/analysis
+          npm install
+          npm run build
+
+      - name: Build Books
+        run: |
+          cd personal-website/books
+          mdbook build
+
+      - name: Consolidate Builds
+        run: |
+          mkdir -p final_site
+          cp -r personal-website/landing/dist/* final_site/
+          
+          mkdir -p final_site/blog
+          cp -r personal-website/blog/dist/* final_site/blog/
+          
+          mkdir -p final_site/analysis
+          cp -r personal-website/analysis/docs/.vitepress/dist/* final_site/analysis/
+          
+          mkdir -p final_site/books
+          cp -r personal-website/books/book/* final_site/books/
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./final_site
