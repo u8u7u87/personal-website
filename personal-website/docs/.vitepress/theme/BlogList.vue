@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
+import { withBase } from 'vitepress'
 import { data as posts } from '../../blog/posts.data.js'
 
 const selectedTag = ref(null)
@@ -56,7 +57,7 @@ const formatDate = (dateStr) => {
         没有找到相关文章
       </div>
       <div v-else class="posts-list">
-        <a v-for="post in filteredPosts" :key="post.url" :href="post.url" class="post-card">
+        <a v-for="post in filteredPosts" :key="post.url" :href="withBase(post.url)" class="post-card">
           <article>
             <h2 class="post-title">{{ post.title }}</h2>
             <p v-if="post.description" class="post-description">{{ post.description }}</p>
