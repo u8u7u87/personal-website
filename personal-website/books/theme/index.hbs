@@ -78,6 +78,16 @@
           color: #38bdf8;
           text-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
         }
+        body.index-page #sidebar-toggle {
+          display: none !important;
+        }
+        body.index-page #sidebar {
+          display: none !important;
+        }
+        body.index-page .page-wrapper {
+          margin-left: 0 !important;
+          padding-left: 0 !important;
+        }
         </style>
     </head>
     <body class="sidebar-visible no-js">
@@ -124,11 +134,21 @@
             var body = document.querySelector('body');
             var sidebar = null;
             var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
-            if (document.body.clientWidth >= 1080) {
-                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
-                sidebar = sidebar || 'visible';
-            } else {
+            
+            var isIndex = window.location.pathname.endsWith('/books/') || 
+                          window.location.pathname.endsWith('/books/index.html') || 
+                          window.location.pathname.endsWith('/index.html');
+            
+            if (isIndex) {
                 sidebar = 'hidden';
+                body.classList.add('index-page');
+            } else {
+                if (document.body.clientWidth >= 1080) {
+                    try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                    sidebar = sidebar || 'visible';
+                } else {
+                    sidebar = 'hidden';
+                }
             }
             sidebar_toggle.checked = sidebar === 'visible';
             body.classList.remove('sidebar-visible');

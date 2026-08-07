@@ -10,10 +10,10 @@ const rootPrefix = site.value.base.replace(/analysis\/$/, '') // '/personal-webs
   <Layout>
     <template #layout-top>
       <nav class="global-nav">
-        <a :href="rootPrefix">Home</a>
-        <a :href="rootPrefix + 'blog/'">Blog</a>
-        <a :href="rootPrefix + 'analysis/'" class="active">Analysis</a>
-        <a :href="rootPrefix + 'books/'">Books</a>
+        <a :href="rootPrefix" target="_self">Home</a>
+        <a :href="rootPrefix + 'blog/'" target="_self">Blog</a>
+        <a :href="rootPrefix + 'analysis/'" class="active" target="_self">Analysis</a>
+        <a :href="rootPrefix + 'books/'" target="_self">Books</a>
       </nav>
     </template>
     <template #doc-after>

@@ -16,13 +16,18 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: var(--bg-radial) no-repeat;
+	background-color: var(--bg-primary, #090d16);
+	background-image: radial-gradient(circle at top, rgba(15, 23, 42, 0.9) 0%, #090d16 100%);
+	background-repeat: no-repeat;
 	background-attachment: fixed;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: var(--text-secondary);
 	font-size: 20px;
 	line-height: 1.7;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
 main {
@@ -30,6 +35,7 @@ main {
 	max-width: calc(100% - 2em);
 	margin: auto;
 	padding: 3em 1em;
+	flex: 1 0 auto;
 }
 
 h1,
