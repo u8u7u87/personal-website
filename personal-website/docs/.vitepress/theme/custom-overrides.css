@@ -1,0 +1,55 @@
+@import "../../../shared/theme.css";
+
+:root, .dark {
+  --vp-font-family-base: var(--font-body);
+  --vp-font-family-mono: monospace;
+  --vp-font-family-heading: var(--font-heading);
+
+  --vp-c-brand: var(--accent);
+  --vp-c-brand-1: var(--accent);
+  --vp-c-brand-2: var(--accent-hover);
+  --vp-c-brand-3: var(--accent-hover);
+  --vp-c-brand-soft: var(--accent-glow);
+
+  --vp-c-text-1: var(--text-primary);
+  --vp-c-text-2: var(--text-secondary);
+  --vp-c-text-3: var(--text-muted);
+
+  --vp-c-bg: var(--bg-primary);
+  --vp-c-bg-alt: var(--glass-bg);
+  --vp-c-bg-elv: var(--glass-bg-hover);
+  --vp-c-bg-soft: var(--glass-bg);
+
+  --vp-sidebar-bg-color: var(--bg-primary);
+  --vp-nav-bg-color: var(--nav-bg);
+
+  --vp-c-border: var(--border-color);
+  --vp-c-divider: var(--border-color);
+  --vp-c-gutter: var(--border-color);
+
+  --vp-code-block-bg: var(--glass-bg-hover);
+  --vp-code-line-height: 1.6;
+}
+
+.VPSidebar {
+  border-right: 1px solid var(--border-color) !important;
+  background-color: var(--bg-primary) !important;
+}
+
+.VPNavBar {
+  border-bottom: 1px solid var(--border-color) !important;
+  background-color: var(--nav-bg) !important;
+  backdrop-filter: blur(var(--glass-blur)) !important;
+  -webkit-backdrop-filter: blur(var(--glass-blur)) !important;
+}
+
+blockquote {
+  border-left: 4px solid var(--accent);
+  padding: 10px 20px;
+  margin: 2em 0;
+  font-size: 1.15em;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
