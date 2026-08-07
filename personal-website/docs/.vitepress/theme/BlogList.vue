@@ -41,11 +41,11 @@ const selectTag = (tag) => {
 const formatDate = (dateStr) => {
   if (!dateStr) return ''
   const date = new Date(dateStr)
-  return date.toLocaleDateString('zh-CN', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit'
-  }).replace(/\//g, '-')
+  if (isNaN(date.getTime())) return ''
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+  return `${year}-${month}-${day}`
 }
 </script>
 
@@ -57,9 +57,11 @@ const formatDate = (dateStr) => {
       </div>
       <div v-else class="posts-list">
         <article v-for="post in filteredPosts" :key="post.url" class="post-card">
-          <a :href="post.url" class="post-link">
-            <h2 class="post-title">{{ post.title }}</h2>
-            <p v-if="post.description" class="post-description">{{ post.description }}</p>
+          <div class="post-card-content">
+            <a :href="post.url" class="post-link">
+              <h2 class="post-title">{{ post.title }}</h2>
+              <p v-if="post.description" class="post-description">{{ post.description }}</p>
+            </a>
             <div class="post-meta">
               <span class="post-date">{{ formatDate(post.date) }}</span>
               <span class="meta-separator" v-if="post.tags && post.tags.length">•</span>
@@ -69,13 +71,13 @@ const formatDate = (dateStr) => {
                   :key="tag"
                   class="post-tag-btn"
                   :class="{ active: selectedTag === tag }"
-                  @click.prevent="selectTag(tag)"
+                  @click.stop.prevent="selectTag(tag)"
                 >
                   #{{ tag }}
                 </button>
               </span>
             </div>
-          </a>
+          </div>
         </article>
       </div>
     </div>
