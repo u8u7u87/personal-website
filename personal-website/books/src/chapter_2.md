@@ -1,71 +1,101 @@
-# Chapter 2: Monorepos & Workspace Hoisting
+# Chapter 2: Agentic Systems
 
-As web applications scale, organizing code becomes a major engineering challenge. A monorepos structure, paired with package workspaces and dependency hoisting, provides a solid framework for managing multi-package and multi-app codebases.
-
-## Monorepos: The Multi-Package Workspace
-
-A **monorepo** (monolithic repository) is a software development strategy where code for multiple projects, libraries, or applications is stored in a single version control repository. 
-
-In the Node.js ecosystem, monorepos are typically implemented using package manager workspaces (e.g., npm Workspaces, Yarn Workspaces, or pnpm Workspaces).
-
-### Key Features
-- **Shared Code**: Easily share utilities, types, and UI components across apps (e.g., sharing a `/shared` module with both `blog` and `landing` apps).
-- **Single Source of Truth**: One git repository simplifies global refactoring, atomic commits, and centralized configurations (eslint, tsconfig, etc.).
-- **Dependency Management**: Centralized dependency versions reduce duplicate packages and resolve version conflicts across applications.
+Agentic Systems represent a major evolution in how we interact with Large Language Models. Instead of using LLMs as static, stateless text predictors or one-shot translators, agentic architectures treat the LLM as a central reasoning engine (or "brain") capable of planning, invoking external tools, and dynamically reacting to feedback.
 
 ---
 
-## Workspace Configuration
+## 1. The ReAct Pattern & Planner Loops
 
-Workspaces are configured in the root-level `package.json` file. Here is an example configuration:
+At the core of most autonomous agents is a control loop. The most influential paradigm for this is **ReAct (Reasoning and Acting)**.
 
+```
+┌──────────────────────────────────────┐
+│                User                  │
+└──────────────────┬───────────────────┘
+                   │ User Query
+                   ▼
+┌──────────────────────────────────────┐
+│        Reasoning Loop (LLM)          │
+│                                      │
+│  1. Thought: Reason about state      │◄───────┐
+│  2. Action: Choose tool & parameters  │        │
+│  3. Observation: Process tool output │        │
+└──────────────────┬───────────────────┘        │
+                   │                            │
+                   │ Invokes Tool               │ Tool Output
+                   ▼                            │ (Observation)
+┌──────────────────────────────────────┐        │
+│            External Tools            ├────────┘
+│ (Web Search, DB, API, Code Sandbox)  │
+└──────────────────────────────────────┘
+```
+
+The agent runs in a cycle:
+1. **Thought**: The model reasons about the current state of the task and determines the next step.
+2. **Action**: The model decides to invoke a specific tool with exact arguments.
+3. **Observation**: The system executes the tool and feeds the result back to the model's context.
+
+This loop repeats until the model determines it has sufficient information to formulate a final response.
+
+---
+
+## 2. Tool Calling & Function Routing
+
+For an LLM to interact with the physical world, it needs a way to call APIs. This is achieved via **Tool Calling** (or Function Calling).
+
+### Tool Schema Definition
+Tools are described to the model using JSON Schema. The schema defines the function name, description, and parameter types, which the model uses to generate a formatted tool call.
+
+Example tool definition:
 ```json
 {
-  "name": "my-monorepo",
-  "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+  "name": "get_stock_price",
+  "description": "Retrieves the current stock price for a given ticker symbol.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "ticker": { "type": "string", "description": "The stock ticker symbol (e.g. AAPL)" }
+    },
+    "required": ["ticker"]
+  }
 }
 ```
 
-This tells the package manager to look inside `apps/` and `packages/` for individual packages containing their own `package.json` files and treat them as symlinked local dependencies.
+### Function Routing
+When the model outputs a tool call containing `{"name": "get_stock_price", "arguments": {"ticker": "AAPL"}}`, the orchestrator application parses this output and routes it to a local executable function:
+
+```python
+def route_action(action_name, arguments):
+    if action_name == "get_stock_price":
+        return get_stock_price(arguments["ticker"])
+    raise ValueError(f"Unknown tool: {action_name}")
+```
 
 ---
 
-## Dependency Hoisting
+## 3. Self-Reflection & Verification
 
-When you run `install` in a monorepo workspace, the package manager resolves and downloads all dependencies. By default, it uses a technique called **dependency hoisting**.
+Agents can easily go off-track or hallucinate incorrect tool parameters. To prevent this, advanced agent architectures integrate **Self-Reflection** or **Self-Correction** loops:
+- **Critique Step**: After generating an answer or code snippet, the agent is prompted to review its own output against constraints (e.g., "Review the generated code for syntax errors and edge cases.").
+- **Execution Verification**: If the agent attempts to run a query or code and receives an error, the error message is fed back into the prompt context, allowing the agent to self-correct and try a different approach.
 
-### What is Hoisting?
-Hoisting is the process of pulling dependencies from individual package `node_modules` folders up to the root-level `node_modules` folder.
+---
 
-```
-Monorepo Structure (Before Hoisting):
-├── package.json (root)
-├── packages/
-│   ├── app-a/
-│   │   ├── package.json (depends on lodash@4.0.0)
-│   │   └── node_modules/lodash/
-│   └── app-b/
-│       ├── package.json (depends on lodash@4.0.0)
-│       └── node_modules/lodash/
+## 4. Multi-Agent Systems
 
-Monorepo Structure (After Hoisting):
-├── package.json (root)
-├── node_modules/
-│   └── lodash/  <-- Hoisted to the root
-└── packages/
-    ├── app-a/
-    └── app-b/
-```
+While single agents can handle simple tasks, complex workflows often require coordinating multiple specialized agents.
 
-### Benefits of Hoisting
-- **Storage Saving**: Avoids downloading and duplicating multiple identical instances of the same package.
-- **Faster Install Times**: Speeds up build and bootstrap pipelines by optimizing disk writes.
+### CrewAI
+- **Focus**: Role-based, collaborative agent workflows.
+- **Concepts**: 
+  - **Agents**: Defined with specific roles, goals, and backstories (e.g., "Researcher", "Writer").
+  - **Tasks**: Specific assignments with concrete deliverables.
+  - **Crews**: A group of agents working sequentially or hierarchically to complete tasks.
 
-### Challenges of Hoisting (Phantom Dependencies)
-- **Phantom Dependencies**: Occur when a package imports a module that it does not declare in its own `package.json`, but can resolve it because the package was hoisted to the root by another package's dependency list. This can cause runtime crashes if the dependency structure changes.
-- **Version Mismatches**: If `app-a` depends on `lodash@4.0.0` and `app-b` depends on `lodash@3.0.0`, hoisting cannot satisfy both at the root level. One will remain nested in its local folder, which might lead to build inconsistencies.
-- **Solving with pnpm**: Frameworks like `pnpm` use content-addressable hard links and non-hoisted layouts (via symlinks) to solve both duplication and phantom dependencies.
+### AutoGen
+- **Focus**: Conversation-driven multi-agent orchestration.
+- **Concepts**:
+  - **Conversational Agents**: Agents communicate with each other via natural language messages.
+  - **Customizable Topologies**: Supports complex agent relationships (e.g., group chats, round-robin, state-machine transitions).
+  - **Human-in-the-Loop**: Seamlessly integrates human intervention during agent conversations.
+

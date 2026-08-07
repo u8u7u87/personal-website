@@ -3,6 +3,7 @@ import '../../../shared/global-nav.css';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { Image } from 'astro:assets';
 
 const rootPrefix = import.meta.env.BASE_URL; // '/personal-website/'
 
@@ -67,6 +68,65 @@ const totalWords = blogWords + analysisWords + booksWords;
 function formatNumber(num: number): string {
   return num.toLocaleString();
 }
+
+const blogImages = import.meta.glob<any>('../../../blog/src/assets/*.jpg', { eager: true });
+
+interface Post {
+  title: string;
+  description: string;
+  pubDateStr: string;
+  heroImage: string;
+  slug: string;
+}
+
+function parseYAMLField(yaml: string, field: string): string {
+  const regex = new RegExp(`^${field}:\\s*(['"]?)(.*?)\\1\\s*$`, 'm');
+  const match = yaml.match(regex);
+  return match ? match[2].trim() : '';
+}
+
+function getLatestPosts(dir: string, count: number): Post[] {
+  const files = getFiles(dir, /\.(md|mdx)$/);
+  const posts: Post[] = [];
+
+  for (const file of files) {
+    try {
+      const content = fs.readFileSync(file, 'utf-8');
+      const match = content.match(/^---([\s\S]*?)---/);
+      if (!match) continue;
+      const yaml = match[1];
+
+      const title = parseYAMLField(yaml, 'title');
+      const description = parseYAMLField(yaml, 'description');
+      const pubDateStr = parseYAMLField(yaml, 'pubDate');
+      const heroImage = parseYAMLField(yaml, 'heroImage');
+      const slug = path.basename(file, path.extname(file));
+
+      posts.push({
+        title,
+        description,
+        pubDateStr,
+        heroImage,
+        slug
+      });
+    } catch (e) {
+      console.error(`Error parsing frontmatter for ${file}:`, e);
+    }
+  }
+
+  return posts
+    .sort((a, b) => new Date(b.pubDateStr).getTime() - new Date(a.pubDateStr).getTime())
+    .slice(0, count);
+}
+
+function getHeroImageSrc(heroImageStr: string): any {
+  if (!heroImageStr) return null;
+  const filename = path.basename(heroImageStr);
+  const key = `../../../blog/src/assets/${filename}`;
+  return blogImages[key]?.default || null;
+}
+
+const latestPosts = getLatestPosts(blogDir, 2);
 ---
 
 <html lang="en">
@@ -154,6 +214,37 @@ function formatNumber(num: number): string {
 					<p class="card-desc">Showcase of open-source projects, tooling, and system designs.</p>
 					<span class="card-action">Explore Work <span class="arrow">→</span></span>
 				</a>
+			</section>
+
+			<!-- Latest Writings Panel -->
+			<section class="latest-writings">
+				<h2 class="section-title">Latest Writings</h2>
+				<div class="writings-grid">
+					{latestPosts.map((post) => {
+						const imageSrc = getHeroImageSrc(post.heroImage);
+						return (
+							<a href={`${rootPrefix}blog/${post.slug}/`} class="writing-card">
+								{imageSrc && (
+									<div class="writing-image-wrapper">
+										<Image src={imageSrc} alt={post.title} width={400} height={200} class="writing-image" />
+									</div>
+								)}
+								<div class="writing-content">
+									<span class="writing-date">
+										{new Date(post.pubDateStr).toLocaleDateString('en-US', {
+											year: 'numeric',
+											month: 'short',
+											day: 'numeric'
+										})}
+									</span>
+									<h3 class="writing-title">{post.title}</h3>
+									<p class="writing-desc">{post.description}</p>
+									<span class="writing-action">Read Post <span class="arrow">→</span></span>
+								</div>
+							</a>
+						);
+					})}
+				</div>
 			</section>
 
 			<!-- Portfolio Section -->
@@ -687,10 +778,179 @@ function formatNumber(num: number): string {
 			transform: translate(60px, 40px) scale(1.05);
 		}
 	}
+
+	/* Latest Writings Section */
+	.latest-writings {
+		border-top: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+		padding-top: 60px;
+		margin-top: 20px;
+		margin-bottom: 60px;
+	}
+
+	.writings-grid {
+		display: grid;
+		grid-template-columns: repeat(1, minmax(0, 1fr));
+		gap: 24px;
+	}
+
+	@media (min-width: 768px) {
+		.writings-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	.writing-card {
+		position: relative;
+		overflow: hidden;
+		background: var(--glass-bg, rgba(15, 23, 42, 0.45));
+		backdrop-filter: blur(var(--glass-blur, 12px));
+		-webkit-backdrop-filter: blur(var(--glass-blur, 12px));
+		border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.08));
+		border-radius: 20px;
+		text-decoration: none;
+		color: var(--text-primary, #f8fafc);
+		transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+					border-color 0.3s ease,
+					box-shadow 0.3s ease,
+					background 0.3s ease;
+		box-shadow: var(--glass-shadow, 0 8px 32px 0 rgba(0, 0, 0, 0.37));
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		box-sizing: border-box;
+	}
+
+	.writing-card::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+		background: radial-gradient(
+			600px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+			rgba(56, 189, 248, 0.08),
+			transparent 40%
+		);
+		pointer-events: none;
+		opacity: 0;
+		transition: opacity 0.4s ease;
+		z-index: 1;
+	}
+
+	.writing-card::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+		padding: 1px;
+		background: radial-gradient(
+			350px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+			rgba(255, 255, 255, 0.2),
+			transparent 50%
+		);
+		-webkit-mask: 
+			linear-gradient(#fff 0 0) content-box, 
+			linear-gradient(#fff 0 0);
+		mask: 
+			linear-gradient(#fff 0 0) content-box, 
+			linear-gradient(#fff 0 0);
+		-webkit-mask-composite: xor;
+		mask-composite: exclude;
+		pointer-events: none;
+		opacity: 0;
+		transition: opacity 0.4s ease;
+		z-index: 2;
+	}
+
+	.writing-card:hover {
+		transform: translateY(-6px);
+		border-color: var(--glass-border-hover, rgba(255, 255, 255, 0.18));
+		background: var(--glass-bg-hover, rgba(15, 23, 42, 0.65));
+		box-shadow: 0 12px 40px 0 rgba(56, 189, 248, 0.15), var(--glass-shadow, 0 8px 32px 0 rgba(0, 0, 0, 0.37));
+	}
+
+	.writing-card:hover::before,
+	.writing-card:hover::after {
+		opacity: 1;
+	}
+
+	.writing-card > * {
+		position: relative;
+		z-index: 3;
+	}
+
+	.writing-image-wrapper {
+		width: 100%;
+		height: 200px;
+		overflow: hidden;
+		border-top-left-radius: 19px;
+		border-top-right-radius: 19px;
+		border-bottom: 1px solid var(--glass-border, rgba(255, 255, 255, 0.08));
+	}
+
+	.writing-image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.5s ease;
+	}
+
+	.writing-card:hover .writing-image {
+		transform: scale(1.05);
+	}
+
+	.writing-content {
+		padding: 24px;
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+	}
+
+	.writing-date {
+		font-size: 0.8rem;
+		color: var(--accent, #38bdf8);
+		font-weight: 600;
+		margin-bottom: 8px;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.writing-title {
+		font-family: var(--font-heading, 'Outfit', sans-serif);
+		font-size: 1.35rem;
+		font-weight: 700;
+		margin: 0 0 10px 0;
+		line-height: 1.3;
+	}
+
+	.writing-card:hover .writing-title {
+		color: var(--accent, #38bdf8);
+	}
+
+	.writing-desc {
+		font-size: 0.95rem;
+		color: var(--text-secondary, #94a3b8);
+		line-height: 1.5;
+		margin: 0 0 20px 0;
+		flex-grow: 1;
+	}
+
+	.writing-action {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		font-size: 0.9rem;
+		font-weight: 600;
+		color: var(--accent, #38bdf8);
+		transition: gap 0.2s ease;
+	}
+
+	.writing-card:hover .writing-action {
+		gap: 10px;
+	}
 </style>
 
 <script>
-	const cards = document.querySelectorAll('.glass-card, .portfolio-card, .stats-panel');
+	const cards = document.querySelectorAll('.glass-card, .portfolio-card, .stats-panel, .writing-card');
 	cards.forEach((card) => {
 		card.addEventListener('mousemove', (e) => {
 			const mouseEvent = e as MouseEvent;

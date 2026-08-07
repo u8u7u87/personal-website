@@ -1,64 +1,57 @@
-# Chapter 3: Documentation & SSG Integrations
+# Chapter 3: MLOps, Fine-Tuning & Quantization
 
-Building a personal website that serves multiple purposes (e.g., a landing page, a technical blog, data analysis reports, and structured digital books) often requires different static site generation tools. This chapter studies the integration of Astro, VitePress, and mdBook.
-
-## Astro: The Content Hub & Landing Page
-
-Astro is a modern web framework designed for content-focused websites. It uses an **island architecture** to deliver exceptionally fast loading speeds by sending zero client-side JavaScript by default.
-
-### Role in the Website
-- **Landing Page**: Hosts the homepage, resume, and portal links.
-- **Blog**: Manages markdown-based and MDX-based posts using Astro Content Collections with strong type safety.
-- **Islands of Interactivity**: Integrates components from React, Vue, or Svelte only where dynamic features (e.g., a search bar or contact form) are needed.
+Deploying Large Language Models at scale requires balancing model accuracy, latency, throughput, and hardware costs. This chapter covers the tools and mathematical optimizations used to customize models via Parameter-Efficient Fine-Tuning (PEFT), compress them using quantization, and run them with high throughput.
 
 ---
 
-## VitePress: Fast, Vue-Powered Documentation
+## 1. Model Customization: LoRA & QLoRA
 
-VitePress is a Static Site Generator (SSG) built on top of Vite and Vue. It is optimized for technical documentation, product guides, and business analysis reports.
+Training a modern LLM containing billions of parameters from scratch is economically and computationally prohibitive. Instead, we use Parameter-Efficient Fine-Tuning (PEFT) to adapt pre-trained models.
 
-### Role in the Website
-- **Analysis Module**: Hosts structured markdown reports (e.g., company research files like `meituan.md`).
-- **Interactive Markdown**: Supports embedding Vue components directly inside markdown files, making it easy to create live data visualizations or interactive charts.
-- **Fast Builds**: Leverages Vite under the hood for extremely fast hot-module reloading and bundle creation.
+### LoRA (Low-Rank Adaptation)
+LoRA freezes the pre-trained model weights and injects trainable rank decomposition matrices into each layer of the Transformer architecture. This drastically reduces the number of trainable parameters.
+
+- **Weight Update Formula**: The final weight $W$ is represented as:
+  $$W = W_0 + \Delta W = W_0 + \frac{\alpha}{r} (B \times A)$$
+  where $W_0$ is the frozen base weight of shape $(d \times k)$, $B$ is a matrix of shape $(d \times r)$, $A$ is a matrix of shape $(r \times k)$, and the rank $r \ll \min(d, k)$.
+- **Advantages**: Reduces GPU memory usage during training up to 90% and produces small adapter files (megabytes instead of gigabytes) that can be swapped dynamically.
+
+### QLoRA (Quantized LoRA)
+QLoRA improves upon LoRA by quantizing the base model down to 4-bit representation before applying the LoRA adapters. It introduces three key optimizations:
+1. **NF4 (NormalFloat 4)**: A mathematically optimal quantization data type for normally distributed base model weights.
+2. **Double Quantization (DQ)**: Quantizes the quantization constants themselves, saving additional memory.
+3. **Paged Optimizers**: Uses CPU RAM page tables to prevent out-of-memory errors during gradient spikes.
 
 ---
 
-## mdBook: Rust-Powered Digital Books
+## 2. Model Compression: Quantization Formats
 
-mdBook is a command-line tool and Rust crate to create clean, searchable books from markdown files. It is lightweight, opinionated, and highly performant.
+Quantization reduces the precision of the model weights (e.g., from FP16 to INT8 or INT4), resulting in smaller file sizes and faster computation at the cost of minimal perplexity loss.
 
-### Role in the Website
-- **Books Module**: Organizes long-form technical guides, courses, and manuals into structured chapters with built-in search, print capability, and customizable themes.
-- **Layout**: Uses a dual-pane layout with a collapsible sidebar table of contents, providing a book-like reading experience.
+| Format | Target Hardware | Primary Use Case | Key Strengths |
+|---|---|---|---|
+| **GGUF** | CPU, Apple Silicon | Local execution (llama.cpp) | Single-file format, rapid CPU offloading. |
+| **AWQ** | Nvidia GPUs | Production server deployments | High accuracy, hardware-accelerated INT4/INT32 execution. |
+| **FP8** | Modern GPUs (H100, L4) | High-performance inference | Native FP8 tensor core acceleration, near-zero accuracy loss. |
+
+- **GGUF (GPT-Generated Unified Format)**: Designed for fast loading and execution on consumer hardware, particularly with unified memory architectures.
+- **AWQ (Activation-aware Weight Quantization)**: Protects the top 1% salient weights that contain the most information, allowing the remaining 99% to be aggressively quantized to 4-bit.
+- **FP8 (Floating Point 8)**: Uses E4M3 and E5M2 representation formats. Adopted by modern deep learning libraries for high-throughput training and inference without the scale-calibration overhead of INT8.
 
 ---
 
-## Monorepo Integration & Routing
+## 3. Production Inference Engines
 
-In our personal website, these three distinct frameworks are integrated into a single monorepo structured as workspaces. They build into a unified site and are served from a single domain.
+Once a model is fine-tuned and quantized, it must be served efficiently to handle multiple concurrent user requests.
 
-### Directory Structure & Build Commands
+### vLLM
+vLLM is a high-throughput, low-latency LLM serving engine designed for multi-user web environments.
+- **PagedAttention**: Leverages virtual memory ideas to store the Attention KV Cache in non-contiguous physical memory pages. This eliminates memory fragmentation and increases serving capacity by up to 2-4x.
+- **Continuous Batching**: Processes requests dynamically at the token level, preventing idle GPU cycles during multi-turn generation.
 
-```
-personal-website/
-├── landing/          <-- Astro project (served at /)
-├── blog/             <-- Astro project (served at /blog/)
-├── analysis/         <-- VitePress project (served at /analysis/)
-├── books/            <-- mdBook project (served at /books/)
-├── package.json      <-- Root script coordinator
-```
+### Ollama
+Ollama is a developer-centric tool for running open-source models locally.
+- **Developer Experience**: Packages models, configuration, and dependencies into a single "Modelfile".
+- **Local API**: Exposes an OpenAI-compatible API running locally on port `11434`.
+- **Resource Management**: Automatically handles CPU/GPU split allocation based on system capabilities.
 
-The root `package.json` coordinates building all three projects under a single command:
-
-```json
-"build:all": "npm --prefix landing run build && npm --prefix blog run build && npm --prefix analysis run build && npm run build:books"
-```
-
-### Static Resource Routing
-By setting the base paths of each module, we ensure that resources are referenced correctly:
-- **Astro (landing & blog)**: Routes requests starting with `/blog` to the blog sub-application.
-- **VitePress (analysis)**: Configured with `base: "/personal-website/analysis/"` in `.vitepress/config.js` to run in its subdirectory.
-- **mdBook (books)**: Configured with `site-url = "/personal-website/books/"` in `book.toml` so internal assets and links resolve correctly.
-
-This hybrid approach allows us to use the best tool for each specific type of content while maintaining a single codebase and continuous integration pipeline.
