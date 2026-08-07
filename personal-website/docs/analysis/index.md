@@ -11,3 +11,6 @@
 
 * **[Moonshot AI (月之暗面 / Kimi) 商业与技术深度解析](./company/moonshot)**
   * 聚焦月之暗面在长上下文大模型 (Long Context)、Scaling Law 实践与用户留存商业化路径。
+
+* **[智谱 AI (Zhipu AI) 目标公司深度调研与求职评估报告](./company/zhipu)**
+  * 探讨港股大模型第一股 (02513.HK)、GLM-5 全模态架构、MaaS 突破 10 亿美金 ARR 与清华系技术护城河。
