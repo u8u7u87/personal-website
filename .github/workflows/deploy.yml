@@ -1,4 +1,4 @@
-name: Deploy Multi-Module Site to GitHub Pages
+name: Deploy Site to GitHub Pages
 
 on:
   push:
@@ -35,35 +35,16 @@ jobs:
           cache: 'npm'
           cache-dependency-path: personal-website/package-lock.json
 
-      - name: Setup mdBook
-        uses: peaceiris/actions-mdbook@v2
-        with:
-          mdbook-version: '0.4.40'
-
       - name: Install Dependencies
         run: npm install --prefix personal-website
 
-      - name: Build All JS/TS Modules
-        run: npm run build:all --prefix personal-website
-
-      - name: Consolidate Builds
-        run: |
-          mkdir -p final_site
-          cp -r personal-website/landing/dist/* final_site/
-          
-          mkdir -p final_site/blog
-          cp -r personal-website/blog/dist/* final_site/blog/
-          
-          mkdir -p final_site/analysis
-          cp -r personal-website/analysis/docs/.vitepress/dist/* final_site/analysis/
-          
-          mkdir -p final_site/books
-          cp -r personal-website/books/book/* final_site/books/
+      - name: Build VitePress Site
+        run: npm run build --prefix personal-website
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./final_site
+          path: ./personal-website/docs/.vitepress/dist
 
       - name: Deploy to GitHub Pages
         id: deployment
