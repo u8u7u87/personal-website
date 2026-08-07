@@ -2,7 +2,7 @@
 import DefaultTheme from 'vitepress/theme'
 import { useData } from 'vitepress'
 const { Layout } = DefaultTheme
-const { site } = useData()
+const { site, frontmatter } = useData()
 const rootPrefix = site.value.base.replace(/analysis\/$/, '') // '/personal-website/'
 </script>
 
@@ -17,7 +17,7 @@ const rootPrefix = site.value.base.replace(/analysis\/$/, '') // '/personal-webs
       </nav>
     </template>
     <template #doc-after>
-      <Comments />
+      <Comments v-if="frontmatter.comments !== false" />
     </template>
   </Layout>
 </template>
