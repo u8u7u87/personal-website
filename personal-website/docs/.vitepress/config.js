@@ -32,7 +32,8 @@ export default {
         {
           text: 'Company dossiers',
           items: [
-            { text: 'Meituan', link: '/analysis/company/meituan' }
+            { text: 'Meituan (美团)', link: '/analysis/company/meituan' },
+            { text: 'Moonshot AI (月之暗面)', link: '/analysis/company/moonshot' }
           ]
         }
       ],
