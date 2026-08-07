@@ -88,10 +88,34 @@
           margin-left: 0 !important;
           padding-left: 0 !important;
         }
+        /* Sub-page offsets to accommodate global navigation header */
+        body:not(.index-page) #sidebar {
+          top: 70px !important;
+        }
+        body:not(.index-page) #menu-bar {
+          top: 70px !important;
+        }
+        body:not(.index-page) .page-wrapper {
+          padding-top: 70px !important;
+        }
+        .site-footer {
+          text-align: center;
+          padding: 30px 0;
+          color: #64748b;
+          font-size: 0.85rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.05);
+          margin-top: 50px;
+        }
         </style>
     </head>
     <body class="sidebar-visible no-js">
     <div id="body-container">
+        <nav class="global-nav">
+            <a href="#" data-target="home">Home</a>
+            <a href="#" data-target="blog">Blog</a>
+            <a href="#" data-target="analysis">Analysis</a>
+            <a href="#" data-target="books" class="active">Books</a>
+        </nav>
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "{{ path_to_root }}";
@@ -189,12 +213,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <nav class="global-nav">
-                    <a href="#" data-target="home">Home</a>
-                    <a href="#" data-target="blog">Blog</a>
-                    <a href="#" data-target="analysis">Analysis</a>
-                    <a href="#" data-target="books" class="active">Books</a>
-                </nav>
+                
 
                 <script>
                     document.addEventListener("DOMContentLoaded", function() {
@@ -329,6 +348,9 @@
                           })();
                         </script>
                     </main>
+                    <footer class="site-footer">
+                      <p>© 2026 u8u7u87. All rights reserved. | Built with Antigravity</p>
+                    </footer>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->

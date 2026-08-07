@@ -4,6 +4,10 @@ export default {
   base: "/personal-website/analysis/",
   themeConfig: {
     nav: [],
-    sidebar: []
+    sidebar: [],
+    footer: {
+      message: 'Built with Antigravity',
+      copyright: '© 2026 u8u7u87. All rights reserved.'
+    }
   }
 }
