@@ -1,8 +1,0 @@
-[book]
-authors = ["Author"]
-language = "en"
-src = "src"
-title = "Books"
-
-[output.html]
-site-url = "/personal-website/books/"
