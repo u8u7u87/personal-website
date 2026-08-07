@@ -10,6 +10,7 @@ const getActiveTheme = () => {
 }
 
 const loadGiscus = () => {
+  if (typeof window === 'undefined') return
   const container = document.getElementById('giscus-container')
   if (!container) return
 
@@ -49,6 +50,7 @@ const loadGiscus = () => {
 }
 
 const handleThemeChange = (e) => {
+  if (typeof window === 'undefined') return
   const newTheme = e.detail.theme === 'light' ? 'light' : 'dark'
   const iframe = document.querySelector('iframe.giscus-frame')
   if (iframe) {
