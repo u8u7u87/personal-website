@@ -35,7 +35,13 @@ export default {
             { text: 'Meituan (美团)', link: '/analysis/company/meituan' },
             { text: 'Moonshot AI (月之暗面)', link: '/analysis/company/moonshot' },
             { text: 'Zhipu AI (智谱 AI)', link: '/analysis/company/zhipu' },
-            { text: 'DeepSeek (深度求索)', link: '/analysis/company/deepseek' }
+            { text: 'DeepSeek (深度求索)', link: '/analysis/company/deepseek' },
+            { text: 'Alibaba (阿里巴巴)', link: '/analysis/company/alibaba' },
+            { text: 'Tencent (腾讯)', link: '/analysis/company/tencent' },
+            { text: 'Huawei (华为)', link: '/analysis/company/huawei' },
+            { text: 'ByteDance (字节跳动)', link: '/analysis/company/bytedance' },
+            { text: 'Netease (网易)', link: '/analysis/company/netease' },
+            { text: 'Xiaomi (小米)', link: '/analysis/company/xiaomi' }
           ]
         }
       ],
