@@ -2,6 +2,7 @@ import DefaultTheme from 'vitepress/theme'
 import Layout from './Layout.vue'
 import Comments from './Comments.vue'
 import SiteStats from './SiteStats.vue'
+import BlogList from './BlogList.vue'
 import './custom-overrides.css'
 
 export default {
@@ -10,5 +11,6 @@ export default {
   enhanceApp({ app }) {
     app.component('Comments', Comments)
     app.component('SiteStats', SiteStats)
+    app.component('BlogList', BlogList)
   }
 }

@@ -1,6 +1,7 @@
 {
   "name": "personal-website-monorepo",
   "private": true,
+  "type": "module",
   "workspaces": [],
   "scripts": {
     "dev": "vitepress dev docs",
@@ -12,4 +13,3 @@
     "vue": "^3.5.0"
   }
 }
-
