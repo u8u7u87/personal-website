@@ -6,6 +6,7 @@
   gap: 20px;
   background: var(--nav-bg);
   backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
   padding: 15px 30px;
   border-radius: 30px;
   border: 1px solid var(--nav-border);
@@ -27,22 +28,31 @@
   text-shadow: 0 0 8px var(--nav-glow);
 }
 
-/* Theme Toggle Button */
-.theme-toggle-btn {
-  background: transparent;
-  border: none;
-  color: var(--nav-text);
-  cursor: pointer;
-  padding: 0;
+/* Floating Theme Switcher Button for landing and blog pages */
+.floating-theme-btn {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 1000;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color 0.2s, transform 0.2s;
-  margin-left: 10px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--glass-shadow);
+  transition: all 0.2s ease;
 }
-.theme-toggle-btn:hover {
-  color: var(--nav-active);
-  transform: scale(1.1);
+.floating-theme-btn:hover {
+  color: var(--accent);
+  border-color: var(--glass-border-hover);
+  transform: scale(1.05);
 }
 .sun-icon {
   display: none;
@@ -64,4 +74,3 @@ html:not(.light-theme) .sun-icon {
 html:not(.light-theme) .moon-icon {
   display: none;
 }
-
