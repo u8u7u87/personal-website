@@ -11,54 +11,55 @@
     --code-font-size: 0.875em;
 }
 
-/* Unify all themes to match the website's dark glassmorphic palette */
+/* Unify all themes to match the website's glassmorphic palette dynamically */
 :root, .light, .rust, .coal, .navy, .ayu, .light.no-js {
-    --bg: #090d16;
-    --fg: #f8fafc;
+    --bg: var(--bg-primary, #090d16);
+    --fg: var(--text-primary, #f8fafc);
 
-    --sidebar-bg: #0f172a;
-    --sidebar-fg: #94a3b8;
-    --sidebar-non-existant: #64748b;
-    --sidebar-active: #38bdf8;
-    --sidebar-spacer: rgba(255, 255, 255, 0.05);
+    --sidebar-bg: var(--glass-bg, #0f172a);
+    --sidebar-fg: var(--text-secondary, #94a3b8);
+    --sidebar-non-existant: var(--text-muted, #64748b);
+    --sidebar-active: var(--accent, #38bdf8);
+    --sidebar-spacer: var(--border-color, rgba(255, 255, 255, 0.05));
 
     --scrollbar: var(--sidebar-fg);
 
-    --icons: #64748b;
-    --icons-hover: #38bdf8;
+    --icons: var(--text-muted, #64748b);
+    --icons-hover: var(--accent, #38bdf8);
 
-    --links: #38bdf8;
+    --links: var(--accent, #38bdf8);
 
-    --inline-code-color: #38bdf8;
+    --inline-code-color: var(--accent, #38bdf8);
 
-    --theme-popup-bg: #0f172a;
-    --theme-popup-border: rgba(255, 255, 255, 0.1);
-    --theme-hover: rgba(255, 255, 255, 0.05);
+    --theme-popup-bg: var(--glass-bg, #0f172a);
+    --theme-popup-border: var(--border-color, rgba(255, 255, 255, 0.1));
+    --theme-hover: var(--glass-bg-hover, rgba(255, 255, 255, 0.05));
 
-    --quote-bg: rgba(255, 255, 255, 0.02);
-    --quote-border: #38bdf8;
+    --quote-bg: var(--glass-bg, rgba(255, 255, 255, 0.02));
+    --quote-border: var(--accent, #38bdf8);
 
     --warning-border: #ff8e00;
 
-    --table-border-color: rgba(255, 255, 255, 0.08);
-    --table-header-bg: rgba(255, 255, 255, 0.08);
-    --table-alternate-bg: rgba(255, 255, 255, 0.02);
+    --table-border-color: var(--border-color, rgba(255, 255, 255, 0.08));
+    --table-header-bg: var(--glass-border-hover, rgba(255, 255, 255, 0.08));
+    --table-alternate-bg: var(--glass-bg, rgba(255, 255, 255, 0.02));
 
-    --searchbar-border-color: rgba(255, 255, 255, 0.1);
-    --searchbar-bg: rgba(255, 255, 255, 0.05);
-    --searchbar-fg: #f8fafc;
+    --searchbar-border-color: var(--border-color, rgba(255, 255, 255, 0.1));
+    --searchbar-bg: var(--glass-bg-hover, rgba(255, 255, 255, 0.05));
+    --searchbar-fg: var(--text-primary, #f8fafc);
     --searchbar-shadow-color: rgba(0, 0, 0, 0.5);
-    --searchresults-header-fg: #64748b;
-    --searchresults-border-color: rgba(255, 255, 255, 0.1);
-    --searchresults-li-bg: rgba(56, 189, 248, 0.1);
-    --search-mark-bg: rgba(56, 189, 248, 0.3);
+    --searchresults-header-fg: var(--text-muted, #64748b);
+    --searchresults-border-color: var(--border-color, rgba(255, 255, 255, 0.1));
+    --searchresults-li-bg: var(--glass-bg, rgba(56, 189, 248, 0.1));
+    --search-mark-bg: var(--accent-glow, rgba(56, 189, 248, 0.3));
 
     --color-scheme: dark;
 }
 
+/* Let browsers optimize scrolling scrollbars under dark mode preferences */
 @media (prefers-color-scheme: dark) {
     .light.no-js {
-        --bg: #090d16;
-        --fg: #f8fafc;
+        --bg: var(--bg-primary, #090d16);
+        --fg: var(--text-primary, #f8fafc);
     }
 }

@@ -1,16 +1,20 @@
 <script setup>
-import { onMounted, watch, nextTick } from 'vue'
-import { useRoute, useData } from 'vitepress'
+import { onMounted, onUnmounted, watch, nextTick } from 'vue'
+import { useRoute } from 'vitepress'
 
 const route = useRoute()
-const { isDark } = useData()
+
+const getActiveTheme = () => {
+  const isLight = document.documentElement.classList.contains('light-theme')
+  return isLight ? 'light' : 'dark'
+}
 
 const loadGiscus = () => {
   const container = document.getElementById('giscus-container')
   if (!container) return
 
   const iframe = container.querySelector('iframe.giscus-frame')
-  const giscusTheme = isDark.value ? 'dark' : 'light'
+  const giscusTheme = getActiveTheme()
 
   if (iframe) {
     iframe.contentWindow.postMessage({
@@ -44,26 +48,33 @@ const loadGiscus = () => {
   container.appendChild(script)
 }
 
+const handleThemeChange = (e) => {
+  const newTheme = e.detail.theme === 'light' ? 'light' : 'dark'
+  const iframe = document.querySelector('iframe.giscus-frame')
+  if (iframe) {
+    iframe.contentWindow.postMessage({
+      giscus: {
+        setConfig: {
+          theme: newTheme
+        }
+      }
+    }, 'https://giscus.app')
+  }
+}
+
 onMounted(() => {
   loadGiscus()
+  window.addEventListener('global-theme-change', handleThemeChange)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('global-theme-change', handleThemeChange)
 })
 
 watch(() => route.path, () => {
   nextTick(() => {
     loadGiscus()
   })
-})
-
-watch(isDark, (dark) => {
-  const iframe = document.querySelector('iframe.giscus-frame')
-  if (!iframe) return
-  iframe.contentWindow.postMessage({
-    giscus: {
-      setConfig: {
-        theme: dark ? 'dark' : 'light'
-      }
-    }
-  }, 'https://giscus.app')
 })
 </script>
 

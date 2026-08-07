@@ -45,3 +45,39 @@ const { title, description, image = FallbackImage } = Astro.props;
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
+
+<script is:inline>
+  (function() {
+    const savedTheme = localStorage.getItem('global-theme') || 'dark';
+    const html = document.documentElement;
+    if (savedTheme === 'light') {
+      html.classList.add('light-theme');
+      html.classList.add('light');
+    } else {
+      html.classList.remove('light-theme');
+      html.classList.remove('light');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.getElementById('global-theme-toggle');
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+          const isCurrentlyLight = html.classList.contains('light-theme');
+          const newTheme = isCurrentlyLight ? 'dark' : 'light';
+          
+          if (newTheme === 'light') {
+            html.classList.add('light-theme');
+            html.classList.add('light');
+          } else {
+            html.classList.remove('light-theme');
+            html.classList.remove('light');
+          }
+          
+          localStorage.setItem('global-theme', newTheme);
+          localStorage.setItem('mdbook-theme', newTheme === 'light' ? 'light' : 'navy');
+          window.dispatchEvent(new CustomEvent('global-theme-change', { detail: { theme: newTheme } }));
+        });
+      }
+    });
+  })();
+</script>

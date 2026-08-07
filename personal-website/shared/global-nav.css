@@ -27,3 +27,41 @@
   text-shadow: 0 0 8px var(--nav-glow);
 }
 
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  background: transparent;
+  border: none;
+  color: var(--nav-text);
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, transform 0.2s;
+  margin-left: 10px;
+}
+.theme-toggle-btn:hover {
+  color: var(--nav-active);
+  transform: scale(1.1);
+}
+.sun-icon {
+  display: none;
+}
+.moon-icon {
+  display: block;
+}
+
+/* Toggle visibility based on active theme class on html */
+html.light-theme .sun-icon {
+  display: none;
+}
+html.light-theme .moon-icon {
+  display: block;
+}
+html:not(.light-theme) .sun-icon {
+  display: block;
+}
+html:not(.light-theme) .moon-icon {
+  display: none;
+}
+
