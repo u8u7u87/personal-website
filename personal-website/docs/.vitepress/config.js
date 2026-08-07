@@ -34,7 +34,8 @@ export default {
           items: [
             { text: 'Meituan (美团)', link: '/analysis/company/meituan' },
             { text: 'Moonshot AI (月之暗面)', link: '/analysis/company/moonshot' },
-            { text: 'Zhipu AI (智谱 AI)', link: '/analysis/company/zhipu' }
+            { text: 'Zhipu AI (智谱 AI)', link: '/analysis/company/zhipu' },
+            { text: 'DeepSeek (深度求索)', link: '/analysis/company/deepseek' }
           ]
         }
       ],

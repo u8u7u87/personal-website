@@ -14,3 +14,6 @@
 
 * **[智谱 AI (Zhipu AI) 目标公司深度调研与求职评估报告](./company/zhipu)**
   * 探讨港股大模型第一股 (02513.HK)、GLM-5 全模态架构、MaaS 突破 10 亿美金 ARR 与清华系技术护城河。
+
+* **[DeepSeek (深度求索) 目标公司深度调研与求职评估报告](./company/deepseek)**
+  * 探讨梁文锋与幻方背景、MLA/DeepSeekMoE 架构创新、R1 深度推理革命与极客文化。
