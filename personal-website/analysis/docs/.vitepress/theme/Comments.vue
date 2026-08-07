@@ -27,10 +27,10 @@ const loadGiscus = () => {
   container.innerHTML = ''
   const script = document.createElement('script')
   script.src = 'https://giscus.app/client.js'
-  script.setAttribute('data-repo', 'username/personal-website')
-  script.setAttribute('data-repo-id', 'repo-id-placeholder')
+  script.setAttribute('data-repo', 'u8u7u87/personal-website')
+  script.setAttribute('data-repo-id', 'R_kgDOTvmA-Q')
   script.setAttribute('data-category', 'Announcements')
-  script.setAttribute('data-category-id', 'category-id-placeholder')
+  script.setAttribute('data-category-id', 'DIC_kwDOTvmA-c4DC1u8')
   script.setAttribute('data-mapping', 'pathname')
   script.setAttribute('data-strict', '0')
   script.setAttribute('data-reactions-enabled', '1')
