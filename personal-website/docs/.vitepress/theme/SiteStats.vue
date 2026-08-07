@@ -150,7 +150,7 @@ const formatNumber = (num) => {
     top: 20%;
     height: 60%;
     width: 1px;
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--vp-c-border);
   }
 }
 
@@ -158,8 +158,8 @@ const formatNumber = (num) => {
   font-family: var(--font-heading, 'Outfit', sans-serif);
   font-size: 2.25rem;
   font-weight: 800;
-  color: var(--accent, #38bdf8);
-  background: linear-gradient(135deg, #fff 50%, var(--accent, #38bdf8) 100%);
+  color: var(--vp-c-brand-1);
+  background: linear-gradient(135deg, var(--vp-c-text-1) 30%, var(--vp-c-brand-1) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 4px;
