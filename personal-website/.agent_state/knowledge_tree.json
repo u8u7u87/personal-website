@@ -119,6 +119,20 @@
       "id": "3.2-vllm-deepspeed",
       "title": "3.2 vLLM 与分布式推理加速 (PagedAttention/Speculative Decoding)",
       "category": "3-engineering",
+      "status": "COMPLETED",
+      "pipeline": {
+        "collector": "DONE",
+        "interviewer": "DONE",
+        "solver": "DONE",
+        "auditor": "DONE",
+        "ui_designer": "DONE",
+        "writer_builder": "DONE"
+      }
+    },
+    {
+      "id": "4.1-theory-deep-qa",
+      "title": "4.1 理论算法高频深度题 (LayerNorm/RMSNorm/AdamW)",
+      "category": "4-interview-qa",
       "status": "IN_PROGRESS",
       "pipeline": {
         "collector": "DONE",

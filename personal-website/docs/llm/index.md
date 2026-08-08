@@ -22,4 +22,8 @@ description: "大模型原理、Agent 架构设计、工程落地实战与面试
 - 🟢 **[3.1 高级 RAG 架构实践 (Hybrid Search/GraphRAG)](/llm/3-engineering/3.1-advanced-rag)** <Badge type="tip" text="已就绪" />
 - 🟢 **[3.2 vLLM 与分布式推理加速](/llm/3-engineering/3.2-vllm-deepspeed)** <Badge type="tip" text="已就绪" />
 
+### 🔥 4. LLM & Agent 面试题集
+- 🟢 **[4.1 理论算法高频深度题 (LayerNorm/RMSNorm/AdamW)](/llm/4-interview-qa/4.1-theory-deep-qa)** <Badge type="tip" text="已就绪" />
+
+
 

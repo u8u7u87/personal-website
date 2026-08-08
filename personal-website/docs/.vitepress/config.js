@@ -56,6 +56,13 @@ export default {
             { text: '3.1 高级 RAG 架构实践 (Hybrid Search/GraphRAG)', link: '/llm/3-engineering/3.1-advanced-rag' },
             { text: '3.2 vLLM 与分布式推理加速', link: '/llm/3-engineering/3.2-vllm-deepspeed' }
           ]
+        },
+        {
+          text: '🔥 4. LLM & Agent 面试题集',
+          collapsed: false,
+          items: [
+            { text: '4.1 理论算法高频深度题 (LayerNorm/RMSNorm/AdamW)', link: '/llm/4-interview-qa/4.1-theory-deep-qa' }
+          ]
         }
       ],
       '/analysis/': [
