@@ -45,7 +45,8 @@ export default {
           text: '🤖 2. Agent 架构与框架',
           collapsed: false,
           items: [
-            { text: '2.1 Agent 核心设计模式 (ReAct/Reflexion/LATS)', link: '/llm/2-agent-framework/2.1-agent-architectures' }
+            { text: '2.1 Agent 核心设计模式 (ReAct/Reflexion/LATS)', link: '/llm/2-agent-framework/2.1-agent-architectures' },
+            { text: '2.2 记忆机制与工具调用 (MemGPT/Function Calling)', link: '/llm/2-agent-framework/2.2-memory-tools' }
           ]
         }
       ],

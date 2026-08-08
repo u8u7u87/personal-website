@@ -77,6 +77,20 @@
       "id": "2.1-agent-architectures",
       "title": "2.1 Agent 核心设计模式与架构",
       "category": "2-agent-framework",
+      "status": "COMPLETED",
+      "pipeline": {
+        "collector": "DONE",
+        "interviewer": "DONE",
+        "solver": "DONE",
+        "auditor": "DONE",
+        "ui_designer": "DONE",
+        "writer_builder": "DONE"
+      }
+    },
+    {
+      "id": "2.2-memory-tools",
+      "title": "2.2 记忆机制与工具调用 (MemGPT/Function Calling)",
+      "category": "2-agent-framework",
       "status": "IN_PROGRESS",
       "pipeline": {
         "collector": "DONE",

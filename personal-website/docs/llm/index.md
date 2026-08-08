@@ -16,4 +16,5 @@ description: "大模型原理、Agent 架构设计、工程落地实战与面试
 
 ### 🤖 2. Agent 架构与框架
 - 🟢 **[2.1 Agent 核心设计模式与架构](/llm/2-agent-framework/2.1-agent-architectures)** <Badge type="tip" text="已就绪" />
+- 🟢 **[2.2 记忆机制与工具调用 (MemGPT/Function Calling)](/llm/2-agent-framework/2.2-memory-tools)** <Badge type="tip" text="已就绪" />
 
