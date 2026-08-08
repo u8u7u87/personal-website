@@ -18,3 +18,7 @@ description: "大模型原理、Agent 架构设计、工程落地实战与面试
 - 🟢 **[2.1 Agent 核心设计模式与架构](/llm/2-agent-framework/2.1-agent-architectures)** <Badge type="tip" text="已就绪" />
 - 🟢 **[2.2 记忆机制与工具调用 (MemGPT/Function Calling)](/llm/2-agent-framework/2.2-memory-tools)** <Badge type="tip" text="已就绪" />
 
+### ⚙️ 3. 工程落地与系统
+- 🟢 **[3.1 高级 RAG 架构实践 (Hybrid Search/GraphRAG)](/llm/3-engineering/3.1-advanced-rag)** <Badge type="tip" text="已就绪" />
+
+

@@ -48,6 +48,13 @@ export default {
             { text: '2.1 Agent 核心设计模式 (ReAct/Reflexion/LATS)', link: '/llm/2-agent-framework/2.1-agent-architectures' },
             { text: '2.2 记忆机制与工具调用 (MemGPT/Function Calling)', link: '/llm/2-agent-framework/2.2-memory-tools' }
           ]
+        },
+        {
+          text: '⚙️ 3. 工程落地与系统',
+          collapsed: false,
+          items: [
+            { text: '3.1 高级 RAG 架构实践 (Hybrid Search/GraphRAG)', link: '/llm/3-engineering/3.1-advanced-rag' }
+          ]
         }
       ],
       '/analysis/': [

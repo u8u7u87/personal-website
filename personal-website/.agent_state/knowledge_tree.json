@@ -91,6 +91,20 @@
       "id": "2.2-memory-tools",
       "title": "2.2 记忆机制与工具调用 (MemGPT/Function Calling)",
       "category": "2-agent-framework",
+      "status": "COMPLETED",
+      "pipeline": {
+        "collector": "DONE",
+        "interviewer": "DONE",
+        "solver": "DONE",
+        "auditor": "DONE",
+        "ui_designer": "DONE",
+        "writer_builder": "DONE"
+      }
+    },
+    {
+      "id": "3.1-advanced-rag",
+      "title": "3.1 高级 RAG 架构实践 (Hybrid Search/GraphRAG)",
+      "category": "3-engineering",
       "status": "IN_PROGRESS",
       "pipeline": {
         "collector": "DONE",
