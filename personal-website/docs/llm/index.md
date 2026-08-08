@@ -10,5 +10,5 @@ description: "大模型原理、Agent 架构设计、工程落地实战与面试
 ### 💡 1. 基础理论深挖
 - 🟢 **[1.1 注意力机制深挖 (MHA/MQA/GQA/MLA)](/llm/1-fundamentals/1.1-attention-deep-dive)** <Badge type="tip" text="已就绪 (Pilot)" />
 - 🟢 **[1.2 位置编码 (RoPE/ALiBi/YaRN)](/llm/1-fundamentals/1.2-positional-encoding)** <Badge type="tip" text="已就绪" />
-- ⏳ **1.3 预训练、SFT 与 Tokenizer 详解** <Badge type="info" text="计划中" />
+- 🟢 **[1.3 预训练、SFT 与 Tokenizer 详解](/llm/1-fundamentals/1.3-pretraining-sft)** <Badge type="tip" text="已就绪" />
 - ⏳ **1.4 强化学习 RLHF, DPO 与 GRPO (DeepSeek R1)** <Badge type="info" text="计划中" />

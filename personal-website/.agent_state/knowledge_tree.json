@@ -21,6 +21,20 @@
       "id": "1.2-positional-encoding",
       "title": "1.2 注意力与位置编码 (RoPE/ALiBi/YaRN)",
       "category": "1-fundamentals",
+      "status": "COMPLETED",
+      "pipeline": {
+        "collector": "DONE",
+        "interviewer": "DONE",
+        "solver": "DONE",
+        "auditor": "DONE",
+        "ui_designer": "DONE",
+        "writer_builder": "DONE"
+      }
+    },
+    {
+      "id": "1.3-pretraining-sft",
+      "title": "1.3 预训练、SFT 与 Tokenizer 详解",
+      "category": "1-fundamentals",
       "status": "IN_PROGRESS",
       "pipeline": {
         "collector": "DONE",
