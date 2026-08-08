@@ -27,5 +27,10 @@ description: "大模型原理、Agent 架构设计、工程落地实战与面试
 - 🟢 **[4.2 大模型系统设计题 (RAG+Agent平台架构)](/llm/4-interview-qa/4.2-system-design-qa)** <Badge type="tip" text="已就绪" />
 - 🟢 **[4.3 手撕代码与算子实现](/llm/4-interview-qa/4.3-coding-handwritten)** <Badge type="tip" text="已就绪" />
 
+### 📦 5. 开源项目与资源
+- 🟢 **[5.1 GitHub 开源项目盘点](/llm/5-open-source/5.1-awesome-github-repos)** <Badge type="tip" text="已就绪" />
+- 🟢 **[5.2 视频解析与时间戳](/llm/5-open-source/5.2-video-lecture-notes)** <Badge type="tip" text="已就绪" />
+
+
 
 

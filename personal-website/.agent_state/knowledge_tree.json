@@ -1,7 +1,7 @@
 {
   "project_name": "LLM & Agent Knowledge Base",
-  "last_updated": "2026-08-09T01:41:00Z",
-  "current_active_topic": "3.2-vllm-deepspeed",
+  "last_updated": "2026-08-09T02:56:00Z",
+  "current_active_topic": "5.2-video-lecture-notes",
   "modules": [
     {
       "id": "1.1-attention-deep-dive",
@@ -161,14 +161,42 @@
       "id": "4.3-coding-handwritten",
       "title": "4.3 手撕代码与算子实现 (GQA/PagedAttn/ReAct/DPO)",
       "category": "4-interview-qa",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETED",
       "pipeline": {
         "collector": "DONE",
         "interviewer": "DONE",
         "solver": "DONE",
         "auditor": "DONE",
         "ui_designer": "DONE",
-        "writer_builder": "IN_PROGRESS"
+        "writer_builder": "DONE"
+      }
+    },
+    {
+      "id": "5.1-awesome-github-repos",
+      "title": "5.1 GitHub 开源项目盘点与代码走读指南",
+      "category": "5-open-source",
+      "status": "COMPLETED",
+      "pipeline": {
+        "collector": "DONE",
+        "interviewer": "DONE",
+        "solver": "DONE",
+        "auditor": "DONE",
+        "ui_designer": "DONE",
+        "writer_builder": "DONE"
+      }
+    },
+    {
+      "id": "5.2-video-lecture-notes",
+      "title": "5.2 视频解析与时间戳 (Karpathy/李沐/3Blue1Brown/Stanford)",
+      "category": "5-open-source",
+      "status": "COMPLETED",
+      "pipeline": {
+        "collector": "DONE",
+        "interviewer": "DONE",
+        "solver": "DONE",
+        "auditor": "DONE",
+        "ui_designer": "DONE",
+        "writer_builder": "DONE"
       }
     }
   ]

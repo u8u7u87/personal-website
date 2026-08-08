@@ -65,6 +65,14 @@ export default {
             { text: '4.2 大模型系统设计题 (RAG+Agent平台架构)', link: '/llm/4-interview-qa/4.2-system-design-qa' },
             { text: '4.3 手撕代码与算子实现 (GQA/PagedAttn/ReAct/DPO)', link: '/llm/4-interview-qa/4.3-coding-handwritten' }
           ]
+        },
+        {
+          text: '📦 5. 开源项目与资源',
+          collapsed: false,
+          items: [
+            { text: '5.1 开源项目盘点', link: '/llm/5-open-source/5.1-awesome-github-repos' },
+            { text: '5.2 视频解析与时间戳', link: '/llm/5-open-source/5.2-video-lecture-notes' }
+          ]
         }
       ],
       '/analysis/': [
