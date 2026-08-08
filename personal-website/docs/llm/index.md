@@ -13,3 +13,7 @@ description: "大模型原理、Agent 架构设计、工程落地实战与面试
 - 🟢 **[1.3 预训练、SFT 与 Tokenizer 详解](/llm/1-fundamentals/1.3-pretraining-sft)** <Badge type="tip" text="已就绪" />
 - 🟢 **[1.4 强化学习 RLHF, DPO 与 GRPO (DeepSeek R1)](/llm/1-fundamentals/1.4-rlhf-dpo-grpo)** <Badge type="tip" text="已就绪" />
 - 🟢 **[1.5 模型量化与推理加速](/llm/1-fundamentals/1.5-quantization-infer)** <Badge type="tip" text="已就绪" />
+
+### 🤖 2. Agent 架构与框架
+- 🟢 **[2.1 Agent 核心设计模式与架构](/llm/2-agent-framework/2.1-agent-architectures)** <Badge type="tip" text="已就绪" />
+

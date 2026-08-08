@@ -1,7 +1,7 @@
 {
   "project_name": "LLM & Agent Knowledge Base",
   "last_updated": "2026-08-09T01:41:00Z",
-  "current_active_topic": "1.5-quantization-infer",
+  "current_active_topic": "2.1-agent-architectures",
   "modules": [
     {
       "id": "1.1-attention-deep-dive",
@@ -71,6 +71,20 @@
         "auditor": "DONE",
         "ui_designer": "DONE",
         "writer_builder": "DONE"
+      }
+    },
+    {
+      "id": "2.1-agent-architectures",
+      "title": "2.1 Agent 核心设计模式与架构",
+      "category": "2-agent-framework",
+      "status": "IN_PROGRESS",
+      "pipeline": {
+        "collector": "DONE",
+        "interviewer": "DONE",
+        "solver": "DONE",
+        "auditor": "DONE",
+        "ui_designer": "DONE",
+        "writer_builder": "IN_PROGRESS"
       }
     }
   ]

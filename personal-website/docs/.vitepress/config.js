@@ -40,6 +40,13 @@ export default {
             { text: '1.4 强化学习 RLHF, DPO 与 GRPO (DeepSeek R1)', link: '/llm/1-fundamentals/1.4-rlhf-dpo-grpo' },
             { text: '1.5 模型量化与推理加速', link: '/llm/1-fundamentals/1.5-quantization-infer' }
           ]
+        },
+        {
+          text: '🤖 2. Agent 架构与框架',
+          collapsed: false,
+          items: [
+            { text: '2.1 Agent 核心设计模式 (ReAct/Reflexion/LATS)', link: '/llm/2-agent-framework/2.1-agent-architectures' }
+          ]
         }
       ],
       '/analysis/': [
