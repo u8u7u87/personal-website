@@ -1,7 +1,7 @@
 {
   "project_name": "LLM & Agent Knowledge Base",
   "last_updated": "2026-08-09T01:41:00Z",
-  "current_active_topic": "1.2-positional-encoding",
+  "current_active_topic": "1.5-quantization-infer",
   "modules": [
     {
       "id": "1.1-attention-deep-dive",
@@ -49,14 +49,28 @@
       "id": "1.4-rlhf-dpo-grpo",
       "title": "1.4 强化学习 RLHF, DPO 与 GRPO (DeepSeek R1)",
       "category": "1-fundamentals",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETED",
       "pipeline": {
         "collector": "DONE",
         "interviewer": "DONE",
         "solver": "DONE",
         "auditor": "DONE",
         "ui_designer": "DONE",
-        "writer_builder": "IN_PROGRESS"
+        "writer_builder": "DONE"
+      }
+    },
+    {
+      "id": "1.5-quantization-infer",
+      "title": "1.5 模型量化与推理加速机制",
+      "category": "1-fundamentals",
+      "status": "COMPLETED",
+      "pipeline": {
+        "collector": "DONE",
+        "interviewer": "DONE",
+        "solver": "DONE",
+        "auditor": "DONE",
+        "ui_designer": "DONE",
+        "writer_builder": "DONE"
       }
     }
   ]

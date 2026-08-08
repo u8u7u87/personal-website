@@ -12,3 +12,4 @@ description: "大模型原理、Agent 架构设计、工程落地实战与面试
 - 🟢 **[1.2 位置编码 (RoPE/ALiBi/YaRN)](/llm/1-fundamentals/1.2-positional-encoding)** <Badge type="tip" text="已就绪" />
 - 🟢 **[1.3 预训练、SFT 与 Tokenizer 详解](/llm/1-fundamentals/1.3-pretraining-sft)** <Badge type="tip" text="已就绪" />
 - 🟢 **[1.4 强化学习 RLHF, DPO 与 GRPO (DeepSeek R1)](/llm/1-fundamentals/1.4-rlhf-dpo-grpo)** <Badge type="tip" text="已就绪" />
+- 🟢 **[1.5 模型量化与推理加速](/llm/1-fundamentals/1.5-quantization-infer)** <Badge type="tip" text="已就绪" />
