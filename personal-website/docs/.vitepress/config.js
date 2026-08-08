@@ -62,7 +62,8 @@ export default {
           collapsed: false,
           items: [
             { text: '4.1 理论算法高频深度题 (LayerNorm/RMSNorm/AdamW)', link: '/llm/4-interview-qa/4.1-theory-deep-qa' },
-            { text: '4.2 大模型系统设计题 (RAG+Agent平台架构)', link: '/llm/4-interview-qa/4.2-system-design-qa' }
+            { text: '4.2 大模型系统设计题 (RAG+Agent平台架构)', link: '/llm/4-interview-qa/4.2-system-design-qa' },
+            { text: '4.3 手撕代码与算子实现 (GQA/PagedAttn/ReAct/DPO)', link: '/llm/4-interview-qa/4.3-coding-handwritten' }
           ]
         }
       ],

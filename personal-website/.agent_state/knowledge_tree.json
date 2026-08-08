@@ -147,6 +147,20 @@
       "id": "4.2-system-design-qa",
       "title": "4.2 大模型系统设计题 (RAG+Agent平台架构)",
       "category": "4-interview-qa",
+      "status": "COMPLETED",
+      "pipeline": {
+        "collector": "DONE",
+        "interviewer": "DONE",
+        "solver": "DONE",
+        "auditor": "DONE",
+        "ui_designer": "DONE",
+        "writer_builder": "DONE"
+      }
+    },
+    {
+      "id": "4.3-coding-handwritten",
+      "title": "4.3 手撕代码与算子实现 (GQA/PagedAttn/ReAct/DPO)",
+      "category": "4-interview-qa",
       "status": "IN_PROGRESS",
       "pipeline": {
         "collector": "DONE",
