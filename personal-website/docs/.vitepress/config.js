@@ -23,11 +23,21 @@ export default {
     },
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'LLM', link: '/llm/' },
       { text: 'Blog', link: '/blog/' },
       { text: 'Analysis', link: '/analysis/' },
       { text: 'Books', link: '/books/' }
     ],
     sidebar: {
+      '/llm/': [
+        {
+          text: '💡 1. 基础理论深挖',
+          collapsed: false,
+          items: [
+            { text: '1.1 注意力机制深挖 (MHA/GQA/MLA)', link: '/llm/1-fundamentals/1.1-attention-deep-dive' }
+          ]
+        }
+      ],
       '/analysis/': [
         {
           text: 'Company dossiers',
