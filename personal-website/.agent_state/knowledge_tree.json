@@ -1,7 +1,7 @@
 {
   "project_name": "LLM & Agent Knowledge Base",
   "last_updated": "2026-08-09T01:41:00Z",
-  "current_active_topic": "2.1-agent-architectures",
+  "current_active_topic": "3.2-vllm-deepspeed",
   "modules": [
     {
       "id": "1.1-attention-deep-dive",
@@ -104,6 +104,20 @@
     {
       "id": "3.1-advanced-rag",
       "title": "3.1 高级 RAG 架构实践 (Hybrid Search/GraphRAG)",
+      "category": "3-engineering",
+      "status": "COMPLETED",
+      "pipeline": {
+        "collector": "DONE",
+        "interviewer": "DONE",
+        "solver": "DONE",
+        "auditor": "DONE",
+        "ui_designer": "DONE",
+        "writer_builder": "DONE"
+      }
+    },
+    {
+      "id": "3.2-vllm-deepspeed",
+      "title": "3.2 vLLM 与分布式推理加速 (PagedAttention/Speculative Decoding)",
       "category": "3-engineering",
       "status": "IN_PROGRESS",
       "pipeline": {
