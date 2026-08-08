@@ -24,6 +24,7 @@ description: "大模型原理、Agent 架构设计、工程落地实战与面试
 
 ### 🔥 4. LLM & Agent 面试题集
 - 🟢 **[4.1 理论算法高频深度题 (LayerNorm/RMSNorm/AdamW)](/llm/4-interview-qa/4.1-theory-deep-qa)** <Badge type="tip" text="已就绪" />
+- 🟢 **[4.2 大模型系统设计题 (RAG+Agent平台架构)](/llm/4-interview-qa/4.2-system-design-qa)** <Badge type="tip" text="已就绪" />
 
 
 

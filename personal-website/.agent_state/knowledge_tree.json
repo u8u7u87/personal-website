@@ -133,6 +133,20 @@
       "id": "4.1-theory-deep-qa",
       "title": "4.1 理论算法高频深度题 (LayerNorm/RMSNorm/AdamW)",
       "category": "4-interview-qa",
+      "status": "COMPLETED",
+      "pipeline": {
+        "collector": "DONE",
+        "interviewer": "DONE",
+        "solver": "DONE",
+        "auditor": "DONE",
+        "ui_designer": "DONE",
+        "writer_builder": "DONE"
+      }
+    },
+    {
+      "id": "4.2-system-design-qa",
+      "title": "4.2 大模型系统设计题 (RAG+Agent平台架构)",
+      "category": "4-interview-qa",
       "status": "IN_PROGRESS",
       "pipeline": {
         "collector": "DONE",
