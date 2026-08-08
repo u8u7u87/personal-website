@@ -1,11 +1,25 @@
 {
   "project_name": "LLM & Agent Knowledge Base",
-  "last_updated": "2026-08-08T23:38:00Z",
-  "current_active_topic": "1.1-attention-deep-dive",
+  "last_updated": "2026-08-09T01:41:00Z",
+  "current_active_topic": "1.2-positional-encoding",
   "modules": [
     {
       "id": "1.1-attention-deep-dive",
       "title": "1.1 注意力机制深挖 (MHA/MQA/GQA/MLA)",
+      "category": "1-fundamentals",
+      "status": "COMPLETED",
+      "pipeline": {
+        "collector": "DONE",
+        "interviewer": "DONE",
+        "solver": "DONE",
+        "auditor": "DONE",
+        "ui_designer": "DONE",
+        "writer_builder": "DONE"
+      }
+    },
+    {
+      "id": "1.2-positional-encoding",
+      "title": "1.2 注意力与位置编码 (RoPE/ALiBi/YaRN)",
       "category": "1-fundamentals",
       "status": "IN_PROGRESS",
       "pipeline": {
@@ -14,7 +28,7 @@
         "solver": "DONE",
         "auditor": "DONE",
         "ui_designer": "DONE",
-        "writer_builder": "PENDING"
+        "writer_builder": "IN_PROGRESS"
       }
     }
   ]

@@ -34,7 +34,8 @@ export default {
           text: '💡 1. 基础理论深挖',
           collapsed: false,
           items: [
-            { text: '1.1 注意力机制深挖 (MHA/GQA/MLA)', link: '/llm/1-fundamentals/1.1-attention-deep-dive' }
+            { text: '1.1 注意力机制深挖 (MHA/GQA/MLA)', link: '/llm/1-fundamentals/1.1-attention-deep-dive' },
+            { text: '1.2 注意力与位置编码 (RoPE/ALiBi/YaRN)', link: '/llm/1-fundamentals/1.2-positional-encoding' }
           ]
         }
       ],
