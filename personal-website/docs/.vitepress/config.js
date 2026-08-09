@@ -38,7 +38,9 @@ export default {
             { text: '1.2 注意力与位置编码 (RoPE/ALiBi/YaRN)', link: '/llm/1-fundamentals/1.2-positional-encoding' },
             { text: '1.3 预训练、SFT 与 Tokenizer', link: '/llm/1-fundamentals/1.3-pretraining-sft' },
             { text: '1.4 强化学习 RLHF, DPO 与 GRPO (DeepSeek R1)', link: '/llm/1-fundamentals/1.4-rlhf-dpo-grpo' },
-            { text: '1.5 模型量化与推理加速', link: '/llm/1-fundamentals/1.5-quantization-infer' }
+            { text: '1.5 模型量化与推理加速', link: '/llm/1-fundamentals/1.5-quantization-infer' },
+            { text: '1.6 MoE 稀疏混合专家架构', link: '/llm/1-fundamentals/1.6-moe-architecture' },
+            { text: '1.7 多模态大模型 VLM 架构', link: '/llm/1-fundamentals/1.7-multimodal-vlm' }
           ]
         },
         {
@@ -54,7 +56,9 @@ export default {
           collapsed: false,
           items: [
             { text: '3.1 高级 RAG 架构实践 (Hybrid Search/GraphRAG)', link: '/llm/3-engineering/3.1-advanced-rag' },
-            { text: '3.2 vLLM 与分布式推理加速', link: '/llm/3-engineering/3.2-vllm-deepspeed' }
+            { text: '3.2 vLLM 与分布式推理加速', link: '/llm/3-engineering/3.2-vllm-deepspeed' },
+            { text: '3.3 端侧部署与 GGUF/llama.cpp', link: '/llm/3-engineering/3.3-on-device-deployment' },
+            { text: '3.4 AI 系统安全与 Guardrails 护栏', link: '/llm/3-engineering/3.4-ai-safety-guardrails' }
           ]
         },
         {

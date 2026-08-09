@@ -1,7 +1,7 @@
 {
   "project_name": "LLM & Agent Knowledge Base",
-  "last_updated": "2026-08-09T02:56:00Z",
-  "current_active_topic": "5.2-video-lecture-notes",
+  "last_updated": "2026-08-09T15:42:00Z",
+  "current_active_topic": "3.4-ai-safety-guardrails",
   "modules": [
     {
       "id": "1.1-attention-deep-dive",
@@ -74,6 +74,34 @@
       }
     },
     {
+      "id": "1.6-moe-architecture",
+      "title": "1.6 MoE 稀疏混合专家架构 (Sparse Mixture-of-Experts)",
+      "category": "1-fundamentals",
+      "status": "COMPLETED",
+      "pipeline": {
+        "collector": "DONE",
+        "interviewer": "DONE",
+        "solver": "DONE",
+        "auditor": "DONE",
+        "ui_designer": "DONE",
+        "writer_builder": "DONE"
+      }
+    },
+    {
+      "id": "1.7-multimodal-vlm",
+      "title": "1.7 多模态大模型 VLM 架构 (Vision-Language Models)",
+      "category": "1-fundamentals",
+      "status": "COMPLETED",
+      "pipeline": {
+        "collector": "DONE",
+        "interviewer": "DONE",
+        "solver": "DONE",
+        "auditor": "DONE",
+        "ui_designer": "DONE",
+        "writer_builder": "DONE"
+      }
+    },
+    {
       "id": "2.1-agent-architectures",
       "title": "2.1 Agent 核心设计模式与架构",
       "category": "2-agent-framework",
@@ -118,6 +146,34 @@
     {
       "id": "3.2-vllm-deepspeed",
       "title": "3.2 vLLM 与分布式推理加速 (PagedAttention/Speculative Decoding)",
+      "category": "3-engineering",
+      "status": "COMPLETED",
+      "pipeline": {
+        "collector": "DONE",
+        "interviewer": "DONE",
+        "solver": "DONE",
+        "auditor": "DONE",
+        "ui_designer": "DONE",
+        "writer_builder": "DONE"
+      }
+    },
+    {
+      "id": "3.3-on-device-deployment",
+      "title": "3.3 端侧部署与 GGUF/llama.cpp 极致加速",
+      "category": "3-engineering",
+      "status": "COMPLETED",
+      "pipeline": {
+        "collector": "DONE",
+        "interviewer": "DONE",
+        "solver": "DONE",
+        "auditor": "DONE",
+        "ui_designer": "DONE",
+        "writer_builder": "DONE"
+      }
+    },
+    {
+      "id": "3.4-ai-safety-guardrails",
+      "title": "3.4 AI 系统安全与 Guardrails 护栏架构",
       "category": "3-engineering",
       "status": "COMPLETED",
       "pipeline": {
