@@ -1,11 +1,11 @@
 {
-  "project_name": "AI Infra 4-Layer Architecture Knowledge Base",
-  "last_updated": "2026-08-10T23:00:00Z",
-  "current_active_topic": "0.1-ai-infra-4layers-overview",
+  "project_name": "AI Infra 6-Layer Production Architecture Knowledge Base",
+  "last_updated": "2026-08-10T23:30:00Z",
+  "current_active_topic": "0.1-ai-infra-6layers-overview",
   "modules": [
     {
-      "id": "0.1-ai-infra-4layers-overview",
-      "title": "0.1 AI Infra 四层架构全景剖析与 Roofline 瓶颈图谱",
+      "id": "0.1-ai-infra-6layers-overview",
+      "title": "0.1 AI Infra 6层全景拓扑与集群瓶颈图谱",
       "category": "0-infra-overview",
       "status": "COMPLETED",
       "pipeline": {
@@ -20,7 +20,7 @@
     {
       "id": "1.1-gpu-memory-roofline",
       "title": "1.1 GPU 硬件算力、HBM 显存带宽与 Roofline 瓶颈分析",
-      "category": "1-hardware-compute",
+      "category": "1-physical-infra",
       "status": "COMPLETED",
       "pipeline": {
         "collector": "DONE",
@@ -48,7 +48,7 @@
     {
       "id": "3.1-attention-mha-gqa-mla",
       "title": "3.1 注意力机制深挖 (MHA/MQA/GQA/MLA)",
-      "category": "3-architecture-attention",
+      "category": "3-engines-architecture",
       "status": "COMPLETED",
       "pipeline": {
         "collector": "DONE",
@@ -62,7 +62,7 @@
     {
       "id": "3.2-linear-attention-mamba",
       "title": "3.2 线性注意力与亚二次方架构: Mamba 1/2, SSM, RWKV",
-      "category": "3-architecture-attention",
+      "category": "3-engines-architecture",
       "status": "COMPLETED",
       "pipeline": {
         "collector": "DONE",
@@ -76,7 +76,7 @@
     {
       "id": "3.3-positional-encoding",
       "title": "3.3 注意力与位置编码 (RoPE/ALiBi/YaRN)",
-      "category": "3-architecture-attention",
+      "category": "3-engines-architecture",
       "status": "COMPLETED",
       "pipeline": {
         "collector": "DONE",
@@ -90,7 +90,7 @@
     {
       "id": "3.4-moe-architecture",
       "title": "3.4 MoE 稀疏混合专家架构 (Sparse Mixture-of-Experts)",
-      "category": "3-architecture-attention",
+      "category": "3-engines-architecture",
       "status": "COMPLETED",
       "pipeline": {
         "collector": "DONE",
@@ -104,7 +104,7 @@
     {
       "id": "3.5-multimodal-vlm",
       "title": "3.5 多模态大模型 VLM 架构 (Vision-Language Models)",
-      "category": "3-architecture-attention",
+      "category": "3-engines-architecture",
       "status": "COMPLETED",
       "pipeline": {
         "collector": "DONE",
@@ -118,7 +118,7 @@
     {
       "id": "3.6-pretraining-sft",
       "title": "3.6 预训练、SFT 与 Tokenizer 详解",
-      "category": "3-architecture-attention",
+      "category": "3-engines-architecture",
       "status": "COMPLETED",
       "pipeline": {
         "collector": "DONE",
@@ -132,7 +132,7 @@
     {
       "id": "3.7-rlhf-dpo-grpo",
       "title": "3.7 强化学习 RLHF, DPO 与 GRPO (DeepSeek R1)",
-      "category": "3-architecture-attention",
+      "category": "3-engines-architecture",
       "status": "COMPLETED",
       "pipeline": {
         "collector": "DONE",
@@ -144,9 +144,9 @@
       }
     },
     {
-      "id": "4.1-provider-innovations",
-      "title": "4.1 厂商与推理框架改进: SGLang RadixAttention, TRT-LLM, DeepSeek V3/R1",
-      "category": "4-serving-application",
+      "id": "3.8-serving-engines-provider-innovations",
+      "title": "3.8 厂商与推理框架改进: SGLang RadixAttention, TRT-LLM, DeepSeek V3/R1",
+      "category": "3-engines-architecture",
       "status": "COMPLETED",
       "pipeline": {
         "collector": "DONE",
@@ -158,9 +158,9 @@
       }
     },
     {
-      "id": "4.2-agent-architectures",
-      "title": "4.2 Agent 核心设计模式与架构 (ReAct/Reflexion/LATS)",
-      "category": "4-serving-application",
+      "id": "4.1-gpu-cluster-scheduling",
+      "title": "4.1 GPU 集群资源调度与配额管理 (Slurm, Kueue, Ray, Gang Scheduling)",
+      "category": "4-cluster-scheduling",
       "status": "COMPLETED",
       "pipeline": {
         "collector": "DONE",
@@ -172,9 +172,9 @@
       }
     },
     {
-      "id": "4.3-memory-tools",
-      "title": "4.3 记忆机制与工具调用 (MemGPT/Function Calling)",
-      "category": "4-serving-application",
+      "id": "4.2-colocation-gpu-virtualization",
+      "title": "4.2 训练/推理混部与 GPU 虚拟化隔离 (Co-location, MIG, vGPU, CUDA IPC)",
+      "category": "4-cluster-scheduling",
       "status": "COMPLETED",
       "pipeline": {
         "collector": "DONE",
@@ -186,9 +186,9 @@
       }
     },
     {
-      "id": "4.4-advanced-rag",
-      "title": "4.4 高级 RAG 架构实践 (Hybrid Search/GraphRAG)",
-      "category": "4-serving-application",
+      "id": "5.1-tracking-observability",
+      "title": "5.1 全链路可观测性与 Token 追踪 (OpenTelemetry, DCGM, NCCL Profiling)",
+      "category": "5-ops-observability-reliability",
       "status": "COMPLETED",
       "pipeline": {
         "collector": "DONE",
@@ -200,9 +200,9 @@
       }
     },
     {
-      "id": "4.5-on-device-deployment",
-      "title": "4.5 端侧部署与 GGUF/llama.cpp 极致加速",
-      "category": "4-serving-application",
+      "id": "5.2-fault-tolerance-degradation",
+      "title": "5.2 千卡故障自动恢复与推理熔断降级 (Fault Tolerance, Circuit Breaking, Fallback)",
+      "category": "5-ops-observability-reliability",
       "status": "COMPLETED",
       "pipeline": {
         "collector": "DONE",
@@ -214,9 +214,9 @@
       }
     },
     {
-      "id": "4.6-ai-safety-guardrails",
-      "title": "4.6 AI 系统安全与 Guardrails 护栏架构",
-      "category": "4-serving-application",
+      "id": "6.1-agent-architectures",
+      "title": "6.1 Agent 核心设计模式与架构 (ReAct/Reflexion/LATS)",
+      "category": "6-application-agent",
       "status": "COMPLETED",
       "pipeline": {
         "collector": "DONE",
@@ -228,9 +228,9 @@
       }
     },
     {
-      "id": "5.1-theory-deep-qa",
-      "title": "5.1 理论算法高频深度题 (LayerNorm/RMSNorm/AdamW)",
-      "category": "5-interview-qa-coding",
+      "id": "6.2-memory-tools",
+      "title": "6.2 记忆机制与工具调用 (MemGPT/Function Calling)",
+      "category": "6-application-agent",
       "status": "COMPLETED",
       "pipeline": {
         "collector": "DONE",
@@ -242,9 +242,9 @@
       }
     },
     {
-      "id": "5.2-system-design-qa",
-      "title": "5.2 大模型系统设计题 (RAG+Agent平台架构)",
-      "category": "5-interview-qa-coding",
+      "id": "6.3-advanced-rag",
+      "title": "6.3 高级 RAG 架构实践 (Hybrid Search/GraphRAG)",
+      "category": "6-application-agent",
       "status": "COMPLETED",
       "pipeline": {
         "collector": "DONE",
@@ -256,9 +256,9 @@
       }
     },
     {
-      "id": "5.3-coding-handwritten",
-      "title": "5.3 手撕代码与算子实现 (GQA/PagedAttn/ReAct/DPO)",
-      "category": "5-interview-qa-coding",
+      "id": "6.4-on-device-deployment",
+      "title": "6.4 端侧部署与 GGUF/llama.cpp 极致加速",
+      "category": "6-application-agent",
       "status": "COMPLETED",
       "pipeline": {
         "collector": "DONE",
@@ -270,9 +270,9 @@
       }
     },
     {
-      "id": "5.4-awesome-github-repos",
-      "title": "5.4 GitHub 开源项目盘点与代码走读指南",
-      "category": "5-interview-qa-coding",
+      "id": "6.5-ai-safety-guardrails",
+      "title": "6.5 AI 系统安全与 Guardrails 护栏架构",
+      "category": "6-application-agent",
       "status": "COMPLETED",
       "pipeline": {
         "collector": "DONE",
@@ -284,9 +284,65 @@
       }
     },
     {
-      "id": "5.5-video-lecture-notes",
-      "title": "5.5 视频解析与时间戳 (Karpathy/李沐/3Blue1Brown/Stanford)",
-      "category": "5-interview-qa-coding",
+      "id": "7.1-theory-deep-qa",
+      "title": "7.1 理论算法高频深度题 (LayerNorm/RMSNorm/AdamW)",
+      "category": "7-interview-qa-coding",
+      "status": "COMPLETED",
+      "pipeline": {
+        "collector": "DONE",
+        "interviewer": "DONE",
+        "solver": "DONE",
+        "auditor": "DONE",
+        "ui_designer": "DONE",
+        "writer_builder": "DONE"
+      }
+    },
+    {
+      "id": "7.2-system-design-qa",
+      "title": "7.2 大模型系统设计题 (RAG+Agent平台架构)",
+      "category": "7-interview-qa-coding",
+      "status": "COMPLETED",
+      "pipeline": {
+        "collector": "DONE",
+        "interviewer": "DONE",
+        "solver": "DONE",
+        "auditor": "DONE",
+        "ui_designer": "DONE",
+        "writer_builder": "DONE"
+      }
+    },
+    {
+      "id": "7.3-coding-handwritten",
+      "title": "7.3 手撕代码与算子实现 (GQA/PagedAttn/ReAct/DPO)",
+      "category": "7-interview-qa-coding",
+      "status": "COMPLETED",
+      "pipeline": {
+        "collector": "DONE",
+        "interviewer": "DONE",
+        "solver": "DONE",
+        "auditor": "DONE",
+        "ui_designer": "DONE",
+        "writer_builder": "DONE"
+      }
+    },
+    {
+      "id": "7.4-awesome-github-repos",
+      "title": "7.4 GitHub 开源项目盘点与代码走读指南",
+      "category": "7-interview-qa-coding",
+      "status": "COMPLETED",
+      "pipeline": {
+        "collector": "DONE",
+        "interviewer": "DONE",
+        "solver": "DONE",
+        "auditor": "DONE",
+        "ui_designer": "DONE",
+        "writer_builder": "DONE"
+      }
+    },
+    {
+      "id": "7.5-video-lecture-notes",
+      "title": "7.5 视频解析与时间戳 (Karpathy/李沐/3Blue1Brown/Stanford)",
+      "category": "7-interview-qa-coding",
       "status": "COMPLETED",
       "pipeline": {
         "collector": "DONE",
