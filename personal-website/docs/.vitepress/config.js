@@ -23,7 +23,7 @@ export default {
     },
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'LLM', link: '/llm/' },
+      { text: 'LLM & AI Infra', link: '/llm/' },
       { text: 'Blog', link: '/blog/' },
       { text: 'Analysis', link: '/analysis/' },
       { text: 'Books', link: '/books/' }
@@ -31,51 +31,60 @@ export default {
     sidebar: {
       '/llm/': [
         {
-          text: '💡 1. 基础理论深挖',
+          text: '📌 0. AI Infra 全景总览',
           collapsed: false,
           items: [
-            { text: '1.1 注意力机制深挖 (MHA/GQA/MLA)', link: '/llm/1-fundamentals/1.1-attention-deep-dive' },
-            { text: '1.2 注意力与位置编码 (RoPE/ALiBi/YaRN)', link: '/llm/1-fundamentals/1.2-positional-encoding' },
-            { text: '1.3 预训练、SFT 与 Tokenizer', link: '/llm/1-fundamentals/1.3-pretraining-sft' },
-            { text: '1.4 强化学习 RLHF, DPO 与 GRPO (DeepSeek R1)', link: '/llm/1-fundamentals/1.4-rlhf-dpo-grpo' },
-            { text: '1.5 模型量化与推理加速', link: '/llm/1-fundamentals/1.5-quantization-infer' },
-            { text: '1.6 MoE 稀疏混合专家架构', link: '/llm/1-fundamentals/1.6-moe-architecture' },
-            { text: '1.7 多模态大模型 VLM 架构', link: '/llm/1-fundamentals/1.7-multimodal-vlm' }
+            { text: '0.1 AI Infra 四层架构与 Roofline 瓶颈图谱', link: '/llm/0-infra-overview/0.1-ai-infra-4layers-overview' }
           ]
         },
         {
-          text: '🤖 2. Agent 架构与框架',
+          text: '🖥️ Layer 1: 硬件与算力',
           collapsed: false,
           items: [
-            { text: '2.1 Agent 核心设计模式 (ReAct/Reflexion/LATS)', link: '/llm/2-agent-framework/2.1-agent-architectures' },
-            { text: '2.2 记忆机制与工具调用 (MemGPT/Function Calling)', link: '/llm/2-agent-framework/2.2-memory-tools' }
+            { text: '1.1 GPU 硬件算力、HBM 带宽与 Roofline', link: '/llm/1-hardware-compute/1.1-gpu-memory-roofline' }
           ]
         },
         {
-          text: '⚙️ 3. 工程落地与系统',
+          text: '⚡ Layer 2: 并行与编译器',
           collapsed: false,
           items: [
-            { text: '3.1 高级 RAG 架构实践 (Hybrid Search/GraphRAG)', link: '/llm/3-engineering/3.1-advanced-rag' },
-            { text: '3.2 vLLM 与分布式推理加速', link: '/llm/3-engineering/3.2-vllm-deepspeed' },
-            { text: '3.3 端侧部署与 GGUF/llama.cpp', link: '/llm/3-engineering/3.3-on-device-deployment' },
-            { text: '3.4 AI 系统安全与 Guardrails 护栏', link: '/llm/3-engineering/3.4-ai-safety-guardrails' }
+            { text: '2.1 3D 分布式并行与 FlashAttention', link: '/llm/2-parallel-compiler/2.1-3d-parallelism-flashattn' }
           ]
         },
         {
-          text: '🔥 4. LLM & Agent 面试题集',
+          text: '🧠 Layer 3: 模型架构与注意力',
           collapsed: false,
           items: [
-            { text: '4.1 理论算法高频深度题 (LayerNorm/RMSNorm/AdamW)', link: '/llm/4-interview-qa/4.1-theory-deep-qa' },
-            { text: '4.2 大模型系统设计题 (RAG+Agent平台架构)', link: '/llm/4-interview-qa/4.2-system-design-qa' },
-            { text: '4.3 手撕代码与算子实现 (GQA/PagedAttn/ReAct/DPO)', link: '/llm/4-interview-qa/4.3-coding-handwritten' }
+            { text: '3.1 注意力机制深挖 (MHA/GQA/MLA)', link: '/llm/3-architecture-attention/3.1-attention-mha-gqa-mla' },
+            { text: '3.2 线性注意力与亚二次方架构 (Mamba 1/2, SSM)', link: '/llm/3-architecture-attention/3.2-linear-attention-mamba' },
+            { text: '3.3 注意力与位置编码 (RoPE/ALiBi/YaRN)', link: '/llm/3-architecture-attention/3.3-positional-encoding' },
+            { text: '3.4 MoE 稀疏混合专家架构', link: '/llm/3-architecture-attention/3.4-moe-architecture' },
+            { text: '3.5 多模态大模型 VLM 架构', link: '/llm/3-architecture-attention/3.5-multimodal-vlm' },
+            { text: '3.6 预训练、SFT 与 Tokenizer 详解', link: '/llm/3-architecture-attention/3.6-pretraining-sft' },
+            { text: '3.7 强化学习 RLHF, DPO 与 GRPO (DeepSeek R1)', link: '/llm/3-architecture-attention/3.7-rlhf-dpo-grpo' }
           ]
         },
         {
-          text: '📦 5. 开源项目与资源',
+          text: '🚀 Layer 4: 推理服务与应用',
           collapsed: false,
           items: [
-            { text: '5.1 开源项目盘点', link: '/llm/5-open-source/5.1-awesome-github-repos' },
-            { text: '5.2 视频解析与时间戳', link: '/llm/5-open-source/5.2-video-lecture-notes' }
+            { text: '4.1 厂商与推理框架改进 (SGLang/TRT-LLM/DeepSeek)', link: '/llm/4-serving-application/4.1-provider-innovations' },
+            { text: '4.2 Agent 核心设计模式 (ReAct/Reflexion/LATS)', link: '/llm/4-serving-application/4.2-agent-architectures' },
+            { text: '4.3 记忆机制与工具调用 (MemGPT/Function Calling)', link: '/llm/4-serving-application/4.3-memory-tools' },
+            { text: '4.4 高级 RAG 架构实践 (Hybrid Search/GraphRAG)', link: '/llm/4-serving-application/4.4-advanced-rag' },
+            { text: '4.5 端侧部署与 GGUF/llama.cpp', link: '/llm/4-serving-application/4.5-on-device-deployment' },
+            { text: '4.6 AI 系统安全与 Guardrails 护栏', link: '/llm/4-serving-application/4.6-ai-safety-guardrails' }
+          ]
+        },
+        {
+          text: '🔥 5. 面试题集、手撕代码与开源资源',
+          collapsed: false,
+          items: [
+            { text: '5.1 理论算法高频深度题 (LayerNorm/RMSNorm/AdamW)', link: '/llm/5-interview-qa-coding/5.1-theory-deep-qa' },
+            { text: '5.2 大模型系统设计题 (RAG+Agent平台架构)', link: '/llm/5-interview-qa-coding/5.2-system-design-qa' },
+            { text: '5.3 手撕代码与算子实现 (GQA/PagedAttn/ReAct/DPO)', link: '/llm/5-interview-qa-coding/5.3-coding-handwritten' },
+            { text: '5.4 开源项目盘点', link: '/llm/5-interview-qa-coding/5.4-awesome-github-repos' },
+            { text: '5.5 视频解析与时间戳', link: '/llm/5-interview-qa-coding/5.5-video-lecture-notes' }
           ]
         }
       ],
