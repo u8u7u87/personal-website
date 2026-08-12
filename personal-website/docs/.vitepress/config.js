@@ -48,7 +48,12 @@ export default {
           text: '⚡ Layer 1: 分布式并行与编译器',
           collapsed: false,
           items: [
-            { text: '2.1 3D 分布式并行与 FlashAttention 算子优化', link: '/llm/2-parallel-compiler/2.1-3d-parallelism-flashattn' }
+            { text: '2.1 3D 分布式并行与 FlashAttention 算子优化', link: '/llm/2-parallel-compiler/2.1-3d-parallelism-flashattn' },
+            { text: '2.2 AI 编译器 IR 表达与前端 Pass 优化', link: '/llm/2-parallel-compiler/2.2-ir-and-frontend-passes' },
+            { text: '2.3 算子融合原理、策略与物理边界', link: '/llm/2-parallel-compiler/2.3-operator-fusion-strategies' },
+            { text: '2.4 融合算子数值精度与稳定性控制', link: '/llm/2-parallel-compiler/2.4-operator-precision-and-stability' },
+            { text: '2.5 后端循环变换与硬件指令映射', link: '/llm/2-parallel-compiler/2.5-loop-transformations-and-codegen' },
+            { text: '2.6 PyTorch Inductor 与 OpenAI Triton 源码实战', link: '/llm/2-parallel-compiler/2.6-triton-and-inductor-internals' }
           ]
         },
         {

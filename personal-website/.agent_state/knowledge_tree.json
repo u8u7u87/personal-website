@@ -1,7 +1,7 @@
 {
   "project_name": "AI Infra 6-Layer Production Architecture Knowledge Base",
-  "last_updated": "2026-08-10T23:30:00Z",
-  "current_active_topic": "0.1-ai-infra-6layers-overview",
+  "last_updated": "2026-08-12T18:15:00Z",
+  "current_active_topic": "2.6-triton-and-inductor-internals",
   "modules": [
     {
       "id": "0.1-ai-infra-6layers-overview",
@@ -34,6 +34,76 @@
     {
       "id": "2.1-3d-parallelism-flashattn",
       "title": "2.1 3D 分布式并行与 FlashAttention 算子优化",
+      "category": "2-parallel-compiler",
+      "status": "COMPLETED",
+      "pipeline": {
+        "collector": "DONE",
+        "interviewer": "DONE",
+        "solver": "DONE",
+        "auditor": "DONE",
+        "ui_designer": "DONE",
+        "writer_builder": "DONE"
+      }
+    },
+    {
+      "id": "2.2-ir-and-frontend-passes",
+      "title": "2.2 AI 编译器 IR 表达与前端 Pass 优化",
+      "category": "2-parallel-compiler",
+      "status": "COMPLETED",
+      "pipeline": {
+        "collector": "DONE",
+        "interviewer": "DONE",
+        "solver": "DONE",
+        "auditor": "DONE",
+        "ui_designer": "DONE",
+        "writer_builder": "DONE"
+      }
+    },
+    {
+      "id": "2.3-operator-fusion-strategies",
+      "title": "2.3 算子融合原理、策略与物理边界",
+      "category": "2-parallel-compiler",
+      "status": "COMPLETED",
+      "pipeline": {
+        "collector": "DONE",
+        "interviewer": "DONE",
+        "solver": "DONE",
+        "auditor": "DONE",
+        "ui_designer": "DONE",
+        "writer_builder": "DONE"
+      }
+    },
+    {
+      "id": "2.4-operator-precision-and-stability",
+      "title": "2.4 融合算子数值精度与稳定性控制",
+      "category": "2-parallel-compiler",
+      "status": "COMPLETED",
+      "pipeline": {
+        "collector": "DONE",
+        "interviewer": "DONE",
+        "solver": "DONE",
+        "auditor": "DONE",
+        "ui_designer": "DONE",
+        "writer_builder": "DONE"
+      }
+    },
+    {
+      "id": "2.5-loop-transformations-and-codegen",
+      "title": "2.5 后端循环变换与硬件指令映射",
+      "category": "2-parallel-compiler",
+      "status": "COMPLETED",
+      "pipeline": {
+        "collector": "DONE",
+        "interviewer": "DONE",
+        "solver": "DONE",
+        "auditor": "DONE",
+        "ui_designer": "DONE",
+        "writer_builder": "DONE"
+      }
+    },
+    {
+      "id": "2.6-triton-and-inductor-internals",
+      "title": "2.6 PyTorch Inductor 与 OpenAI Triton 编译器源码级实战",
       "category": "2-parallel-compiler",
       "status": "COMPLETED",
       "pipeline": {
