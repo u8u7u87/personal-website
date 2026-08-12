@@ -41,7 +41,8 @@ export default {
           text: '🖥️ Layer 0: 物理硬件与算力',
           collapsed: false,
           items: [
-            { text: '1.1 GPU 硬件算力、HBM 显存带宽与 Roofline', link: '/llm/1-physical-infra/1.1-gpu-memory-roofline' }
+            { text: '1.1 GPU 硬件算力、HBM 显存带宽与 Roofline', link: '/llm/1-physical-infra/1.1-gpu-memory-roofline' },
+            { text: '1.2 稀疏 Tensor Core 与高速互联拓扑', link: '/llm/1-physical-infra/1.2-hardware-sparse-and-interconnect' }
           ]
         },
         {
@@ -53,7 +54,8 @@ export default {
             { text: '2.3 算子融合原理、策略与物理边界', link: '/llm/2-parallel-compiler/2.3-operator-fusion-strategies' },
             { text: '2.4 融合算子数值精度与稳定性控制', link: '/llm/2-parallel-compiler/2.4-operator-precision-and-stability' },
             { text: '2.5 后端循环变换与硬件指令映射', link: '/llm/2-parallel-compiler/2.5-loop-transformations-and-codegen' },
-            { text: '2.6 PyTorch Inductor 与 OpenAI Triton 源码实战', link: '/llm/2-parallel-compiler/2.6-triton-and-inductor-internals' }
+            { text: '2.6 PyTorch Inductor 与 OpenAI Triton 源码实战', link: '/llm/2-parallel-compiler/2.6-triton-and-inductor-internals' },
+            { text: '2.7 分布式通信重叠与 ZeRO 显存优化', link: '/llm/2-parallel-compiler/2.7-distributed-communication-overlap' }
           ]
         },
         {
@@ -67,7 +69,8 @@ export default {
             { text: '3.5 多模态大模型 VLM 架构', link: '/llm/3-engines-architecture/3.5-multimodal-vlm' },
             { text: '3.6 预训练、SFT 与 Tokenizer 详解', link: '/llm/3-engines-architecture/3.6-pretraining-sft' },
             { text: '3.7 强化学习 RLHF, DPO 与 GRPO (DeepSeek R1)', link: '/llm/3-engines-architecture/3.7-rlhf-dpo-grpo' },
-            { text: '3.8 厂商与推理框架改进 (SGLang/TRT-LLM/DeepSeek)', link: '/llm/3-engines-architecture/3.8-serving-engines-provider-innovations' }
+            { text: '3.8 厂商与推理框架改进 (SGLang/TRT-LLM/DeepSeek)', link: '/llm/3-engines-architecture/3.8-serving-engines-provider-innovations' },
+            { text: '3.9 模型剪枝、LoRA 与投机解码', link: '/llm/3-engines-architecture/3.9-model-compression-speculative-decoding' }
           ]
         },
         {
@@ -94,7 +97,8 @@ export default {
             { text: '6.2 记忆机制与工具调用 (MemGPT/Function Calling)', link: '/llm/6-application-agent/6.2-memory-tools' },
             { text: '6.3 高级 RAG 架构实践 (Hybrid Search/GraphRAG)', link: '/llm/6-application-agent/6.3-advanced-rag' },
             { text: '6.4 端侧部署与 GGUF/llama.cpp', link: '/llm/6-application-agent/6.4-on-device-deployment' },
-            { text: '6.5 AI 系统安全与 Guardrails 护栏', link: '/llm/6-application-agent/6.5-ai-safety-guardrails' }
+            { text: '6.5 AI 系统安全与 Guardrails 护栏', link: '/llm/6-application-agent/6.5-ai-safety-guardrails' },
+            { text: '6.6 语义缓存与状态机约束解码', link: '/llm/6-application-agent/6.6-semantic-cache-constrained-decoding' }
           ]
         },
         {

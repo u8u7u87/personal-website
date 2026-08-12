@@ -18,6 +18,7 @@ description: "大模型 AI Infra 6层拓扑架构、物理算力与网络、分�
 ## 🖥️ 1. Layer 0: 物理硬件与算力 (Physical Infra & Hardware)
 
 - 🟢 **[1.1 GPU 硬件算力、HBM 显存带宽与 Roofline 瓶颈分析](/llm/1-physical-infra/1.1-gpu-memory-roofline)** <Badge type="tip" text="已就绪" />
+- 🟢 **[1.2 稀疏 Tensor Core 与高速互联拓扑](/llm/1-physical-infra/1.2-hardware-sparse-and-interconnect)** <Badge type="tip" text="全新核心" />
 
 ---
 
@@ -29,6 +30,7 @@ description: "大模型 AI Infra 6层拓扑架构、物理算力与网络、分�
 - 🟢 **[2.4 融合算子数值精度与稳定性控制](/llm/2-parallel-compiler/2.4-operator-precision-and-stability)** <Badge type="tip" text="全新核心" />
 - 🟢 **[2.5 后端循环变换与硬件指令映射](/llm/2-parallel-compiler/2.5-loop-transformations-and-codegen)** <Badge type="tip" text="全新核心" />
 - 🟢 **[2.6 PyTorch Inductor 与 OpenAI Triton 编译器源码级实战](/llm/2-parallel-compiler/2.6-triton-and-inductor-internals)** <Badge type="tip" text="全新核心" />
+- 🟢 **[2.7 分布式通信重叠与 ZeRO 显存优化](/llm/2-parallel-compiler/2.7-distributed-communication-overlap)** <Badge type="tip" text="全新核心" />
 
 ---
 
@@ -42,6 +44,7 @@ description: "大模型 AI Infra 6层拓扑架构、物理算力与网络、分�
 - 🟢 **[3.6 预训练、SFT 与 Tokenizer 详解](/llm/3-engines-architecture/3.6-pretraining-sft)** <Badge type="tip" text="已就绪" />
 - 🟢 **[3.7 强化学习 RLHF, DPO 与 GRPO (DeepSeek R1)](/llm/3-engines-architecture/3.7-rlhf-dpo-grpo)** <Badge type="tip" text="已就绪" />
 - 🟢 **[3.8 厂商与推理框架改进: SGLang RadixAttention, TRT-LLM, DeepSeek V3/R1](/llm/3-engines-architecture/3.8-serving-engines-provider-innovations)** <Badge type="tip" text="已就绪" />
+- 🟢 **[3.9 模型剪枝、LoRA 与投机解码](/llm/3-engines-architecture/3.9-model-compression-speculative-decoding)** <Badge type="tip" text="全新核心" />
 
 ---
 
@@ -66,6 +69,7 @@ description: "大模型 AI Infra 6层拓扑架构、物理算力与网络、分�
 - 🟢 **[6.3 高级 RAG 架构实践 (Hybrid Search/GraphRAG)](/llm/6-application-agent/6.3-advanced-rag)** <Badge type="tip" text="已就绪" />
 - 🟢 **[6.4 端侧部署与 GGUF/llama.cpp](/llm/6-application-agent/6.4-on-device-deployment)** <Badge type="tip" text="已就绪" />
 - 🟢 **[6.5 AI 系统安全与 Guardrails 护栏](/llm/6-application-agent/6.5-ai-safety-guardrails)** <Badge type="tip" text="已就绪" />
+- 🟢 **[6.6 语义缓存与状态机约束解码](/llm/6-application-agent/6.6-semantic-cache-constrained-decoding)** <Badge type="tip" text="全新核心" />
 
 ---
 

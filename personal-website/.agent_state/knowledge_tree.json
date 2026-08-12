@@ -32,6 +32,20 @@
       }
     },
     {
+      "id": "1.2-hardware-sparse-and-interconnect",
+      "title": "1.2 稀疏 Tensor Core 与高速互联拓扑",
+      "category": "1-physical-infra",
+      "status": "COMPLETED",
+      "pipeline": {
+        "collector": "DONE",
+        "interviewer": "DONE",
+        "solver": "DONE",
+        "auditor": "DONE",
+        "ui_designer": "DONE",
+        "writer_builder": "DONE"
+      }
+    },
+    {
       "id": "2.1-3d-parallelism-flashattn",
       "title": "2.1 3D 分布式并行与 FlashAttention 算子优化",
       "category": "2-parallel-compiler",
