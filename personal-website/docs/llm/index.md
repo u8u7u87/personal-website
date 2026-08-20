@@ -80,3 +80,5 @@ description: "大模型 AI Infra 6层拓扑架构、物理算力与网络、分�
 - 🟢 **[7.3 手撕代码与算子实现](/llm/7-interview-qa-coding/7.3-coding-handwritten)** <Badge type="tip" text="已就绪" />
 - 🟢 **[7.4 GitHub 开源项目盘点](/llm/7-interview-qa-coding/7.4-awesome-github-repos)** <Badge type="tip" text="已就绪" />
 - 🟢 **[7.5 视频解析与时间戳](/llm/7-interview-qa-coding/7.5-video-lecture-notes)** <Badge type="tip" text="已就绪" />
+- 🟢 **[7.6 分布式排障实战 (NCCL Hang/OOM/Loss Spike/Straggler)](/llm/7-interview-qa-coding/7.6-training-inference-debugging-qa)** <Badge type="warning" text="高级/专家题" />
+

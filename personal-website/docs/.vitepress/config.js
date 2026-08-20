@@ -109,7 +109,8 @@ export default {
             { text: '7.2 大模型系统设计题 (RAG+Agent平台架构)', link: '/llm/7-interview-qa-coding/7.2-system-design-qa' },
             { text: '7.3 手撕代码与算子实现 (GQA/PagedAttn/ReAct/DPO)', link: '/llm/7-interview-qa-coding/7.3-coding-handwritten' },
             { text: '7.4 开源项目盘点', link: '/llm/7-interview-qa-coding/7.4-awesome-github-repos' },
-            { text: '7.5 视频解析与时间戳', link: '/llm/7-interview-qa-coding/7.5-video-lecture-notes' }
+            { text: '7.5 视频解析与时间戳', link: '/llm/7-interview-qa-coding/7.5-video-lecture-notes' },
+            { text: '7.6 分布式排障实战 (NCCL/OOM/Loss Spike)', link: '/llm/7-interview-qa-coding/7.6-training-inference-debugging-qa' }
           ]
         }
       ],
