@@ -128,7 +128,8 @@ export default {
             { text: 'Huawei (华为)', link: '/analysis/company/huawei' },
             { text: 'ByteDance (字节跳动)', link: '/analysis/company/bytedance' },
             { text: 'Netease (网易)', link: '/analysis/company/netease' },
-            { text: 'Xiaomi (小米)', link: '/analysis/company/xiaomi' }
+            { text: 'Xiaomi (小米)', link: '/analysis/company/xiaomi' },
+            { text: 'MiniMax (稀宇科技)', link: '/analysis/company/minimax' }
           ]
         }
       ],
