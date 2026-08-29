@@ -130,7 +130,8 @@ export default {
             { text: 'Netease (网易)', link: '/analysis/company/netease' },
             { text: 'Xiaomi (小米)', link: '/analysis/company/xiaomi' },
             { text: 'MiniMax (稀宇科技)', link: '/analysis/company/minimax' },
-            { text: 'Baichuan AI (百川智能)', link: '/analysis/company/baichuan' }
+            { text: 'Baichuan AI (百川智能)', link: '/analysis/company/baichuan' },
+            { text: 'StepFun (阶跃星辰)', link: '/analysis/company/stepfun' }
           ]
         }
       ],
