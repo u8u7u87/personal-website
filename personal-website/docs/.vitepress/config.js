@@ -131,7 +131,8 @@ export default {
             { text: 'Xiaomi (小米)', link: '/analysis/company/xiaomi' },
             { text: 'MiniMax (稀宇科技)', link: '/analysis/company/minimax' },
             { text: 'Baichuan AI (百川智能)', link: '/analysis/company/baichuan' },
-            { text: 'StepFun (阶跃星辰)', link: '/analysis/company/stepfun' }
+            { text: 'StepFun (阶跃星辰)', link: '/analysis/company/stepfun' },
+            { text: '01.AI (零一万物)', link: '/analysis/company/01ai' }
           ]
         }
       ],
