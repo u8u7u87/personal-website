@@ -119,3 +119,35 @@ blockquote {
   max-width: 100%;
   height: auto;
 }
+
+/* Math Formula (MathJax3 SVG) Styling */
+mjx-container {
+  outline: none !important;
+  color: var(--text-primary) !important;
+}
+
+mjx-container[display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1.5rem 0;
+  padding: 0.75rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+}
+
+mjx-container svg {
+  display: inline-block;
+  vertical-align: middle;
+  color: inherit !important;
+  fill: currentColor !important;
+}
+
+mjx-container svg path,
+mjx-container svg rect,
+mjx-container svg line {
+  fill: currentColor !important;
+  stroke: currentColor;
+}
+
+

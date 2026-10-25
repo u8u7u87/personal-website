@@ -4,6 +4,9 @@ export default withMermaid({
   title: "u8u7u87",
   description: "Personal Space & Insights",
   base: "/personal-website/",
+  markdown: {
+    math: true
+  },
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/personal-website/favicon.svg' }],
     ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/personal-website/favicon-32x32.png' }],
