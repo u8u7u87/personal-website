@@ -104,3 +104,18 @@ blockquote {
 .blog-layout + .VPDocAside {
   display: none;
 }
+
+/* Mermaid Diagram Responsive Container */
+.mermaid {
+  display: flex;
+  justify-content: center;
+  margin: 1.75rem 0;
+  padding: 1rem 0;
+  overflow-x: auto;
+  border-radius: 8px;
+}
+
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}

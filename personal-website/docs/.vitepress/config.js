@@ -1,4 +1,6 @@
-export default {
+import { withMermaid } from 'vitepress-plugin-mermaid'
+
+export default withMermaid({
   title: "u8u7u87",
   description: "Personal Space & Insights",
   base: "/personal-website/",
@@ -162,4 +164,4 @@ export default {
       copyright: '© 2026 u8u7u87. All rights reserved.'
     }
   }
-}
+})
