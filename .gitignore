@@ -7,3 +7,5 @@ book/
 .claude/
 agent-template/
 package-lock.json
+llm-enterprise-hub/
+pytest/

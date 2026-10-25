@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Background Gradient (Deep Space Obsidian) -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="45%" stop-color="#05070e"/>
+      <stop offset="100%" stop-color="#0c1424"/>
+    </linearGradient>
+
+    <!-- Outer Squircle Border Gradient -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.85"/>
+      <stop offset="40%" stop-color="#818cf8" stop-opacity="0.35"/>
+      <stop offset="80%" stop-color="#06b6d4" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.25"/>
+    </linearGradient>
+
+    <!-- Edge Rim Highlight -->
+    <linearGradient id="rimHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8"/>
+      <stop offset="40%" stop-color="#38bdf8" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#818cf8" stop-opacity="0.8"/>
+    </linearGradient>
+
+    <!-- 3D Faces -->
+    <linearGradient id="topFaceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+
+    <linearGradient id="leftFaceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="60%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+
+    <linearGradient id="rightFaceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818cf8"/>
+      <stop offset="50%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#312e81"/>
+    </linearGradient>
+
+    <!-- Quantum Core Rhombuses -->
+    <linearGradient id="cyanCore" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#67e8f9"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+
+    <linearGradient id="whiteCore" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e0f2fe"/>
+    </linearGradient>
+
+    <linearGradient id="purpleCore" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+
+    <!-- Ambient Radial Atmosphere -->
+    <radialGradient id="centerGlow" cx="50%" cy="48%" r="48%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.32"/>
+      <stop offset="50%" stop-color="#6366f1" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#05070e" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="quantumGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#38bdf8" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Filters -->
+    <filter id="coreBloom" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="structureShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="20" flood-color="#0284c7" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <!-- Squircle Base Canvas -->
+  <rect x="20" y="20" width="472" height="472" rx="114" fill="url(#bg)" stroke="url(#borderGrad)" stroke-width="3.5"/>
+
+  <!-- Radial Core Lighting -->
+  <circle cx="256" cy="250" r="190" fill="url(#centerGlow)"/>
+
+  <!-- Subtle Cyber Alignment Ring -->
+  <circle cx="256" cy="256" r="170" fill="none" stroke="#38bdf8" stroke-width="1" stroke-dasharray="3 9" opacity="0.16"/>
+
+  <!-- 3D Monogram & Quantum AI Architecture -->
+  <g filter="url(#structureShadow)">
+    <!-- Base Cradle (Connecting the U) -->
+    <path d="M 140 325 L 256 392 L 372 325 L 312 290 L 256 322 L 200 290 Z" fill="url(#topFaceGrad)"/>
+    <path d="M 140 325 L 256 392 L 256 416 L 140 349 Z" fill="url(#leftFaceGrad)"/>
+    <path d="M 372 325 L 256 392 L 256 416 L 372 349 Z" fill="url(#rightFaceGrad)"/>
+
+    <!-- Left Pillar (U Left Arm) -->
+    <path d="M 140 160 L 200 125 L 200 290 L 140 325 Z" fill="url(#leftFaceGrad)"/>
+    <!-- Top Cut Face Left -->
+    <path d="M 140 160 L 200 125 L 200 148 L 140 183 Z" fill="url(#topFaceGrad)"/>
+
+    <!-- Right Pillar (U Right Arm) -->
+    <path d="M 312 125 L 372 160 L 372 325 L 312 290 Z" fill="url(#rightFaceGrad)"/>
+    <!-- Top Cut Face Right -->
+    <path d="M 312 125 L 372 160 L 372 183 L 312 148 Z" fill="url(#topFaceGrad)"/>
+
+    <!-- Fine Specular Rim Lines on Upper Edges -->
+    <path d="M 140 160 L 200 125" stroke="url(#rimHighlight)" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 312 125 L 372 160" stroke="url(#rimHighlight)" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 140 325 L 256 392 L 372 325" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.8" fill="none"/>
+
+    <!-- Subtle Circuit Trace on Left Pillar -->
+    <g opacity="0.35" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" fill="none">
+      <path d="M 160 200 L 160 270 L 180 282"/>
+      <circle cx="160" cy="200" r="2.5" fill="#38bdf8"/>
+    </g>
+
+    <!-- Subtle Circuit Trace on Right Pillar -->
+    <g opacity="0.35" stroke="#a855f7" stroke-width="1.5" stroke-linecap="round" fill="none">
+      <path d="M 352 200 L 352 270 L 332 282"/>
+      <circle cx="352" cy="200" r="2.5" fill="#a855f7"/>
+    </g>
+
+    <!-- Central Neural / Quantum Stack (Represents AI Layers & Infinity 8) -->
+    <!-- Central Optical Axis Beam -->
+    <line x1="256" y1="115" x2="256" y2="152" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+    <line x1="256" y1="288" x2="256" y2="322" stroke="#818cf8" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+
+    <!-- Horizontal Interconnect Synapse Buses -->
+    <line x1="200" y1="220" x2="232" y2="220" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="3 3" opacity="0.85"/>
+    <line x1="312" y1="220" x2="280" y2="220" stroke="#c084fc" stroke-width="2.5" stroke-dasharray="3 3" opacity="0.85"/>
+
+    <!-- Layer 1: Top Cyan Prism Rhombus -->
+    <polygon points="256,152 298,176 256,200 214,176" fill="url(#cyanCore)"/>
+    <polygon points="256,152 298,176 256,200 214,176" fill="none" stroke="#67e8f9" stroke-width="1.5" stroke-opacity="0.8"/>
+
+    <!-- Layer 2: Radiant Center Quantum Node -->
+    <polygon points="256,205 282,220 256,235 230,220" fill="url(#whiteCore)" filter="url(#coreBloom)"/>
+    <circle cx="256" cy="220" r="18" fill="url(#quantumGlow)" pointer-events="none"/>
+
+    <!-- Layer 3: Bottom Violet Prism Rhombus -->
+    <polygon points="256,240 298,264 256,288 214,264" fill="url(#purpleCore)"/>
+    <polygon points="256,240 298,264 256,288 214,264" fill="none" stroke="#e9d5ff" stroke-width="1.5" stroke-opacity="0.8"/>
+  </g>
+</svg>

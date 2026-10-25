@@ -3,6 +3,10 @@ export default {
   description: "Personal Space & Insights",
   base: "/personal-website/",
   head: [
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/personal-website/favicon.svg' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/personal-website/favicon-32x32.png' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/personal-website/favicon-16x16.png' }],
+    ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/personal-website/apple-touch-icon.png' }],
     ['script', {}, `
       (function() {
         const savedTheme = localStorage.getItem('global-theme') || 'dark';
@@ -18,6 +22,7 @@ export default {
     `]
   ],
   themeConfig: {
+    logo: '/logo.svg',
     search: {
       provider: 'local'
     },
