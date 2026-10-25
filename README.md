@@ -1,7 +1,9 @@
 # u8u7u87 | Personal Space & Insights
 
 <p align="center">
-  <img src="personal-website/docs/public/logo.svg" width="120" height="120" alt="u8u7u87 Logo" />
+  <a href="https://u8u7u87.github.io/personal-website/">
+    <img src="https://raw.githubusercontent.com/u8u7u87/personal-website/main/personal-website/docs/public/logo.png" width="120" height="120" alt="u8u7u87 Logo" />
+  </a>
 </p>
 
 <p align="center">
